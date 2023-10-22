@@ -1,0 +1,19 @@
+.userslist_container {
+    -fx-background-color: #EEEEEE;
+}
+
+.userslist_container Text {
+    -fx-fill: #555555;
+    -fx-font-size: 1.8em;
+    -fx-font-family: "Calibri Light";
+}
+
+.userslist_container .list-view {
+    -fx-background-color: #EEEEEE;
+    -fx-border-width: 0;
+}
+
+.userslist_container .list-cell {
+    -fx-background-color: #EEEEEE;
+    -fx-border-width: 10 0 10 0;
+}

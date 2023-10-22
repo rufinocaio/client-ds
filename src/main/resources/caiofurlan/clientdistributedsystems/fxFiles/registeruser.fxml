@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.RegisterUserController">
+    <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <FontAwesomeIconView glyphName="SERVER" size="30" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sistemas" />
+    </VBox>
+    <VBox layoutX="255.0" layoutY="33.0" prefHeight="350.0" prefWidth="350.0" styleClass="login_form_container" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Label layoutX="10.0" layoutY="10.0" text="Nome:" />
+      <TextField fx:id="name_field" layoutX="10.0" layoutY="78.0" styleClass="input_field" />
+        <Label text="Email:" />
+        <TextField fx:id="email_field" styleClass="input_field" />
+        <Label text="Senha:" />
+        <PasswordField fx:id="password_field" styleClass="input_field" />
+        <Button fx:id="register_button" mnemonicParsing="false" text="Registrar" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?" />
+        <Label fx:id="error_label" styleClass="error_lbl" />
+    </VBox>
+    <Button fx:id="login_button" layoutX="306.0" layoutY="319.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" style="-fx-cursor: hand; -fx-background-color: transparent;" text="Fazer login!" textFill="RED" underline="true" />
+</AnchorPane>

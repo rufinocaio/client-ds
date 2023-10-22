@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../style/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.user.UserMenuController">
+   <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
+      <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <FontAwesomeIconView glyphName="SERVER" size="30" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SD" />
+      </VBox>
+      <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+         <Button fx:id="dashboard_button" mnemonicParsing="false" text="Dashboard">
+            <graphic>
+               <FontAwesomeIconView glyphName="HOME" size="20" />
+            </graphic>
+         </Button>
+         <Button fx:id="second_button" mnemonicParsing="false" text="Botão1" />
+         <Button fx:id="third_button" mnemonicParsing="false" text="Botão2" />
+         <Line endX="120.0" />
+         <Button fx:id="profile_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Perfil">
+            <graphic>
+               <FontAwesomeIconView glyphName="USER_CIRCLE" size="20" />
+            </graphic>
+         </Button>
+         <Button fx:id="logout_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Sair">
+            <graphic>
+               <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
+            </graphic>
+         </Button>
+      </VBox>
+      <VBox prefHeight="120.0" prefWidth="160.0" styleClass="report_container" AnchorPane.bottomAnchor="0.0">
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reportar sugestão/erro?" />
+         <Label text="Use isso para relatar algum erro ou sugestão." />
+         <Button fx:id="report_button" mnemonicParsing="false" text="Reportar">
+            <graphic>
+               <FontAwesomeIconView glyphName="PLUS" />
+            </graphic>
+         </Button>
+      </VBox>
+   </AnchorPane>
+</VBox>
