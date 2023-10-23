@@ -17,7 +17,7 @@
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email"/>
         <TextField fx:id="email_field"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Senha"/>
-        <TextField fx:id="password_field"/>
+        <PasswordField fx:id="password_field"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo da conta:"/>
         <ChoiceBox fx:id="account_selector" prefWidth="150.0"/>
         <Button fx:id="register_button" mnemonicParsing="false" text="Registrar"/>

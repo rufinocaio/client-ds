@@ -38,7 +38,7 @@ public class RegisterUserADMController implements Initializable {
 
     private void onRegister() throws Exception {
         SendData sender = new SendData();
-        String userType = account_selector.getValue().toString().equals("ADMIN") ? "admin" : "user";
+        String userType = account_selector.getValue().toString().equals("Administrador") ? "admin" : "user";
         String name = name_field.getText();
         String email = email_field.getText();
         String password = password_field.getText();
