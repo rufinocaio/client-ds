@@ -1,12 +1,12 @@
 package caiofurlan.clientdistributedsystems.system.utilities;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
 
 public class Token {
     private static final String FILE_PATH = "jwt_token.txt";

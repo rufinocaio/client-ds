@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import org.apache.commons.codec.digest.DigestUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;

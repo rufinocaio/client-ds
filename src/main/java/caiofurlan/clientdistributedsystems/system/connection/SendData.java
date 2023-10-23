@@ -89,10 +89,8 @@ public class SendData {
     public String sendLogin(String email, String password) {
         String response = null;
         try {
-            if (IsValidData.loginIsValid(email, password)) {
-                Connection connection = App.getConnection();
-                response = connection.send(objectMapper.writeValueAsString(generateLoginData(email, password)));
-            }
+            Connection connection = App.getConnection();
+            response = connection.send(objectMapper.writeValueAsString(generateLoginData(email, password)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -103,10 +101,8 @@ public class SendData {
     public String sendRegisterUserADM(String name, String email, String password, String type) {
         String response = null;
         try {
-            if (IsValidData.registerUserIsValid(name, email, password, type)) {
-                Connection connection = App.getConnection();
-                response = connection.send(objectMapper.writeValueAsString(generateRegisterUserADMData(name, email, password, type)));
-            }
+            Connection connection = App.getConnection();
+            response = connection.send(objectMapper.writeValueAsString(generateRegisterUserADMData(name, email, password, type)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -116,10 +112,8 @@ public class SendData {
     public String sendRegisterUser(String name, String email, String password) {
         String response = null;
         try {
-            if (IsValidData.registerUserIsValid(name, email, password, "user")) {
-                Connection connection = App.getConnection();
-                response = connection.send(objectMapper.writeValueAsString(generateRegisterUserData(name, email, password)));
-            }
+            Connection connection = App.getConnection();
+            response = connection.send(objectMapper.writeValueAsString(generateRegisterUserData(name, email, password)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
