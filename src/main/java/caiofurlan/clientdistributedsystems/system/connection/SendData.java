@@ -66,7 +66,7 @@ public class SendData {
 
     public Map<String, Object> generateRegisterUserData(String name, String email, String password) throws JsonProcessingException {
         this.data = new HashMap<>();
-        this.data.put("nome", name);
+        this.data.put("name", name);
         this.data.put("email", email);
         this.data.put("password", password);
         return generateFinalData("autocadastro-usuario", this.data);

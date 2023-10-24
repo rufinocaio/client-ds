@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +41,7 @@ public class RegisterUserController implements Initializable {
         SendData sender = new SendData();
         String name = name_field.getText();
         String email = email_field.getText();
-        String password = password_field.getText();
+        String password = DigestUtils.md5Hex(password_field.getText()).toUpperCase();
         if(IsValidData.registerUserIsValid(name, email, password, "user")) {
             String response = sender.sendRegisterUser(name, email, password);
             if (response != null)
