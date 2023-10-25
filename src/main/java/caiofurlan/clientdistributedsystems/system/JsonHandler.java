@@ -18,7 +18,6 @@ public class JsonHandler {
             jsonBuilder.append(inputLine);
         }
 
-        // Imprimir o JSON no console
         String receivedJson = jsonBuilder.toString();
         System.out.println("JSON recebido do servidor: " + receivedJson);
         return receivedJson;
@@ -30,7 +29,6 @@ public class JsonHandler {
         jsonMap = Map.of("action", action, "data", data);
         String jsonRequest = objectMapper.writeValueAsString(jsonMap);
 
-        // Enviar o JSON para o servidor
         PrintWriter outToServer = new PrintWriter(socket.getOutputStream(), true);
         System.out.println("JSON enviado para o servidor: " + jsonRequest);
         outToServer.println(jsonRequest);

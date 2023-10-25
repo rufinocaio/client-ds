@@ -31,10 +31,10 @@ public class Connection {
             try {
                 PrintWriter writer = new PrintWriter(out, true);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                // Send a message to the server
+
                 System.out.println("Enviando mensagem para o servidor: " + message);
                 writer.println(message);
-                // Get the response from the server
+
                 if((response = reader.readLine()) != null) {
                     System.out.println("Resposta do servidor: " + response);
                     response = response;

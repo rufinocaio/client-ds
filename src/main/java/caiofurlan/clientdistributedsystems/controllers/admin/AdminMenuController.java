@@ -28,8 +28,7 @@ public class AdminMenuController implements Initializable {
         user_register_button.setOnAction(event -> onRegisterUser ());
         users_button.setOnAction(event -> onUsersList());
         logout_button.setOnAction(event -> onLogOut());
-        /* profile_button.setOnAction(event -> onProfile());
-        logout_button.setOnAction(event -> onLogout()); */
+        /* profile_button.setOnAction(event -> onProfile());*/
     }
 
     private void onRegisterUser() {

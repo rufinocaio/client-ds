@@ -10,7 +10,7 @@ public class IsValidData {
         if (password == null || password.isEmpty()) {
             throw new Exception("Senha é obrigatória.");
         }
-        if (Validators.isEmailValid(email)) {
+        if (!Validators.isEmailValid(email)) {
             throw new Exception("E-mail inválido.");
         }
         if (Validators.isPasswordValid(password)) {
@@ -31,17 +31,12 @@ public class IsValidData {
             throw  new Exception("Nome é obrigatório");
         }
 
-        if (Validators.isEmailValid(email)) {
-            throw  new Exception("E-mail inválido");
-        }
 
         if (password == null || password.isEmpty()) {
             throw  new Exception("Senha é obrigatório");
         }
 
-        if (Validators.isEmailValid(email)) {
-            throw new Exception("E-mail inválido.");
-        }
+
         if (Validators.isPasswordValid(password)) {
             throw new Exception("Senha deve ter 6 dígitos");
         }

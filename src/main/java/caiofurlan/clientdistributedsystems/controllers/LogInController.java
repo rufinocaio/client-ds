@@ -25,7 +25,7 @@ public class LogInController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         email_field.setText("admin@admin.com");
-        password_field.setText("123456");
+        password_field.setText("admin123");
         login_button.setOnAction(event -> {
             try {
                 onLogin();
