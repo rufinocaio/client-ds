@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="130.0" prefWidth="770.0" style="-fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-width: 3; -fx-border-radius: 5;" styleClass="create_client_container" stylesheets="@../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Label fx:id="id_label" layoutX="428.0" layoutY="59.0" prefHeight="17.0" prefWidth="24.0" text="ID: 1" />
+   <Button fx:id="edit_button" layoutX="496.0" layoutY="50.0" mnemonicParsing="false" text="Editar" />
+    <VBox prefHeight="130.0" prefWidth="215.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="565.0" AnchorPane.topAnchor="0.0">
+        <Label fx:id="name_label" prefHeight="52.0" prefWidth="183.0" text="Nome: Caio">
+           <padding>
+               <Insets bottom="5.0" left="30.0" right="10.0" top="30.0" />
+           </padding>
+        </Label>
+        <Label fx:id="type_label" prefHeight="17.0" prefWidth="199.0" text="Tipo de usuário: Admin">
+         <padding>
+            <Insets left="30.0" right="10.0" />
+         </padding>
+        </Label>
+    </VBox>
+   <Label fx:id="email_label" layoutX="230.0" layoutY="59.0" prefHeight="17.0" prefWidth="168.0" text="Email: caiiofr@outlook.com.br" />
+</AnchorPane>

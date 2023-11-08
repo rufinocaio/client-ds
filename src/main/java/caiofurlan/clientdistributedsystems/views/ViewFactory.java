@@ -10,30 +10,27 @@ import javafx.stage.Stage;
 import javax.swing.*;
 
 public class ViewFactory {
-    private AccountType loginAccountType;
+
+    private final ObjectProperty<MenuOptions> selectedMenuItem;
+
+    //Common views
+    private AnchorPane profileView;
+    private AnchorPane editUserView;
+    private AnchorPane deleteUserView;
 
     // Client views
-    private final ObjectProperty<UserMenuOptions> userSelectedMenuItem;
     private AnchorPane dashboardView;
     /* ----------------- */
 
     // Admin views
-    private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane registerUserView;
     private AnchorPane usersListView;
+    private AnchorPane editUserADMView;
+    private AnchorPane deleteUserADMView;
     /* ----------------- */
 
     public ViewFactory() {
-        this.loginAccountType = AccountType.USER;
-        this.userSelectedMenuItem = new SimpleObjectProperty<>();
-        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
-    }
-    public AccountType getLoginAccountType() {
-        return loginAccountType;
-    }
-
-    public void setLoginAccountType(AccountType loginAccountType) {
-        this.loginAccountType = loginAccountType;
+        this.selectedMenuItem = new SimpleObjectProperty<>();
     }
 
     private void createStage(FXMLLoader loader, String title) {
@@ -51,13 +48,50 @@ public class ViewFactory {
     }
 
     /* Common views */
+    public ObjectProperty<MenuOptions> getSelectedMenuItem() {
+        return selectedMenuItem;
+    }
+
     public void closeStage(Stage stage) {
         stage.close();
     }
 
     public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/login.fxml"));
         createStage(loader, "Log in!");
+    }
+
+    public AnchorPane getProfileView() {
+        if (profileView == null) {
+            try {
+                profileView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/profile.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return profileView;
+    }
+
+    public AnchorPane getEditUserView() {
+        if (editUserView == null) {
+            try {
+                editUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/edituser.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editUserView;
+    }
+
+    public AnchorPane getDeleteUserView() {
+        if (deleteUserView == null) {
+            try {
+                deleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/deleteuser.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return deleteUserView;
     }
 
     public void showConnectWindow() {
@@ -76,12 +110,10 @@ public class ViewFactory {
     /* ----------------- */
 
     /* User views */
-    public ObjectProperty<UserMenuOptions> getUserSelectedMenuItem() {
-        return userSelectedMenuItem;
-    }
 
     public void showUserWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/user/user.fxml"));
+
         createStage(loader, "Bem-vindo!");
     }
 
@@ -95,13 +127,10 @@ public class ViewFactory {
         }
         return dashboardView;
     }
+
     /* ----------------- */
 
     /* Admin views */
-    public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
-        return adminSelectedMenuItem;
-    }
-
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/admin.fxml"));
         createStage(loader, "Bem-vindo!");
@@ -127,6 +156,38 @@ public class ViewFactory {
             }
         }
         return usersListView;
+    }
+
+    public AnchorPane getEditUserAdmView() {
+        if (editUserADMView == null) {
+            try {
+                editUserADMView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/edituseradm.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editUserADMView;
+    }
+
+    public AnchorPane getDeleteUserAdmView() {
+        if (deleteUserADMView == null) {
+            try {
+                deleteUserADMView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/deleteuseradm.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return deleteUserADMView;
+    }
+
+    public void resetAllAnchorPanes() {
+        profileView = null;
+        editUserView = null;
+        deleteUserView = null;
+        registerUserView = null;
+        usersListView = null;
+        editUserADMView = null;
+        deleteUserADMView = null;
     }
 
     /* ----------------- */

@@ -22,6 +22,14 @@
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
 }
 
+.create_client_container PasswordField {
+    -fx-pref-width: 250;
+    -fx-pref-height: 35;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 1.3em;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
+}
+
 .create_client_container Button {
     -fx-background-color: linear-gradient(to right, #132A13, #253F25);
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);

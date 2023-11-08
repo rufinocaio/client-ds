@@ -37,7 +37,6 @@ public class Connection {
 
                 if((response = reader.readLine()) != null) {
                     System.out.println("Resposta do servidor: " + response);
-                    response = response;
                     break;
                 }
             } catch (IOException e) {

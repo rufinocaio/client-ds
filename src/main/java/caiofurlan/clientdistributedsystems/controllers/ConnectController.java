@@ -1,7 +1,7 @@
 package caiofurlan.clientdistributedsystems.controllers;
 
 import caiofurlan.clientdistributedsystems.App;
-import caiofurlan.clientdistributedsystems.models.ConnectionModel;
+import caiofurlan.clientdistributedsystems.models.Connection;
 import caiofurlan.clientdistributedsystems.models.Model;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class ConnectController implements Initializable {
         button_connect.setOnAction(event -> openDialog(App.openConnection(tf_ip.getText(), tf_port.getText())));
     }
 
-    public void openDialog(ConnectionModel result) {
+    public void openDialog(Connection result) {
         Platform.runLater(() -> {
             try {
                 if (result != null && result.validate()) {

@@ -1,9 +1,10 @@
-package caiofurlan.clientdistributedsystems.controllers;
+package caiofurlan.clientdistributedsystems.controllers.common;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.connection.IsValidData;
-import caiofurlan.clientdistributedsystems.system.connection.ReceiveData;
-import caiofurlan.clientdistributedsystems.system.connection.SendData;
+import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
+import caiofurlan.clientdistributedsystems.system.connection.send.SendRegisterUser;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,15 +39,15 @@ public class RegisterUserController implements Initializable {
     }
 
     private void onRegister() throws Exception {
-        SendData sender = new SendData();
+        SendRegisterUser sender = new SendRegisterUser();
         String name = name_field.getText();
         String email = email_field.getText();
         String password = DigestUtils.md5Hex(password_field.getText()).toUpperCase();
-        if(IsValidData.registerUserIsValid(name, email, password, "user")) {
-            String response = sender.sendRegisterUser(name, email, password);
+        if(IsValid.registerUserIsValid(name, email, password, "user")) {
+            JsonNode response = sender.send(name, email, password);
             if (response != null)
             {
-                ReceiveData receiver = new ReceiveData(ReceiveData.stringToMap(response));
+                Receiver receiver = new Receiver(response);
                 if (receiver.getError()) {
                     Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
                 } else {

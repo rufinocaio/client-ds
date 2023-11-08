@@ -14,6 +14,7 @@ module caiofurlan.clientdistributedsystems {
     opens caiofurlan.clientdistributedsystems.controllers to javafx.fxml;
     opens caiofurlan.clientdistributedsystems.controllers.admin to javafx.fxml;
     opens caiofurlan.clientdistributedsystems.controllers.user to javafx.fxml;
+    opens caiofurlan.clientdistributedsystems.models to com.fasterxml.jackson.databind;
     exports caiofurlan.clientdistributedsystems;
     exports caiofurlan.clientdistributedsystems.controllers;
     exports caiofurlan.clientdistributedsystems.controllers.admin;
@@ -23,4 +24,8 @@ module caiofurlan.clientdistributedsystems {
     exports caiofurlan.clientdistributedsystems.system.connection;
     exports caiofurlan.clientdistributedsystems.system.utilities;
     exports caiofurlan.clientdistributedsystems.views;
+    exports caiofurlan.clientdistributedsystems.system.connection.send;
+    exports caiofurlan.clientdistributedsystems.controllers.common;
+    opens caiofurlan.clientdistributedsystems.controllers.common to javafx.fxml;
+    exports caiofurlan.clientdistributedsystems.system.connection.receive;
 }

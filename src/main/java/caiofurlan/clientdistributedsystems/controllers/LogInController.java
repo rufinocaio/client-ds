@@ -1,10 +1,11 @@
 package caiofurlan.clientdistributedsystems.controllers;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.connection.IsValidData;
-import caiofurlan.clientdistributedsystems.system.connection.ReceiveData;
-import caiofurlan.clientdistributedsystems.system.connection.SendData;
+import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
+import caiofurlan.clientdistributedsystems.system.connection.send.SendLogin;
 import caiofurlan.clientdistributedsystems.system.utilities.Token;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -43,14 +44,14 @@ public class LogInController implements Initializable {
     }
 
     private void onLogin() throws Exception {
-        SendData sender = new SendData();
+        SendLogin sender = new SendLogin();
         String email = email_field.getText();
         String password = password_field.getText();
-        if (IsValidData.loginIsValid(email, password)) {
+        if (IsValid.loginIsValid(email, password)) {
             password = DigestUtils.md5Hex(password).toUpperCase();
-            String response = sender.sendLogin(email, password);
+            JsonNode response = sender.send(email, password);
             if (response != null) {
-                ReceiveData receiver = new ReceiveData(ReceiveData.stringToMap(response));
+                Receiver receiver = new Receiver(response);
                 if (receiver.getError()) {
                     Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
                 } else {

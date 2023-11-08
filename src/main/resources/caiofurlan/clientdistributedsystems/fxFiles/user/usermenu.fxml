@@ -3,9 +3,10 @@
 <?import de.jensd.fx.glyphs.fontawesome.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Text?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../style/menu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.user.UserMenuController">
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../style/menu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.user.UserMenuController">
    <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
       <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <FontAwesomeIconView glyphName="SERVER" size="30" />
@@ -17,8 +18,8 @@
                <FontAwesomeIconView glyphName="HOME" size="20" />
             </graphic>
          </Button>
-         <Button fx:id="second_button" mnemonicParsing="false" text="Botão1" />
-         <Button fx:id="third_button" mnemonicParsing="false" text="Botão2" />
+         <Button fx:id="second_button" mnemonicParsing="false" text="------------------" />
+         <Button fx:id="third_button" mnemonicParsing="false" text="------------------" />
          <Line endX="120.0" />
          <Button fx:id="profile_button" mnemonicParsing="false" styleClass="alt_menu_button" text="Perfil">
             <graphic>

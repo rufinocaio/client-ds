@@ -1,10 +1,10 @@
 package caiofurlan.clientdistributedsystems.models;
 
-public class ConnectionModel {
+public class Connection {
     private final String ip;
     private final String port;
 
-    public ConnectionModel(String ip, String port) {
+    public Connection(String ip, String port) {
         this.ip = ip;
         this.port = port;
     }

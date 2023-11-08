@@ -1,11 +1,14 @@
 package caiofurlan.clientdistributedsystems.controllers.admin;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.connection.ReceiveData;
-import caiofurlan.clientdistributedsystems.system.connection.SendData;
+import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
+import caiofurlan.clientdistributedsystems.system.connection.send.SendClientList;
+import caiofurlan.clientdistributedsystems.system.connection.send.SendLogout;
+import caiofurlan.clientdistributedsystems.system.connection.send.SendProfile;
 import caiofurlan.clientdistributedsystems.system.utilities.Token;
-import caiofurlan.clientdistributedsystems.views.AdminMenuOptions;
+import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -26,38 +29,78 @@ public class AdminMenuController implements Initializable {
 
     private void addListeners(){
         user_register_button.setOnAction(event -> onRegisterUser ());
-        users_button.setOnAction(event -> onUsersList());
-        logout_button.setOnAction(event -> onLogOut());
-        /* profile_button.setOnAction(event -> onProfile());*/
+        users_button.setOnAction(event -> {
+            try {
+                onUsersList();
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        logout_button.setOnAction(event -> {
+            try {
+                onLogOut();
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        profile_button.setOnAction(event -> {
+            try {
+                onProfile();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     private void onRegisterUser() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.REGISTER_USER);
+        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_USER);
     }
 
-    private void onUsersList() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.USERS_LIST);
-    }
-
-    public void onLogOut() {
-        Stage stage = (Stage) logout_button.getScene().getWindow();
-
-        SendData sender = new SendData();
-        String response = sender.sendLogout(Token.getJwtToken());
-        if (response != null)
-        {
-            try {
-                ReceiveData receiver = new ReceiveData(ReceiveData.stringToMap(response));
-                if (receiver.getError()) {
-                    Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
-                } else {
-                    Token.eraseJwtToken();
-                    Model.getInstance().getViewFactory().showLoginWindow();
-                    Model.getInstance().getViewFactory().closeStage(stage);
-                }
-            } catch (JsonProcessingException e) {
-                Model.getInstance().getViewFactory().showErrorMessage(e.getMessage());
+    private void onUsersList() throws JsonProcessingException {
+        SendClientList sender = new SendClientList();
+        JsonNode response = sender.send(Token.getJwtToken());
+        if (response != null) {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+            } else {
+                receiver.getClientList();
+                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.USERS_LIST);
             }
         }
     }
+
+    public void onLogOut() throws JsonProcessingException {
+        Stage stage = (Stage) logout_button.getScene().getWindow();
+
+        SendLogout sender = new SendLogout();
+        JsonNode response = sender.send(Token.getJwtToken());
+        if (response != null)
+        {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+            } else {
+                Token.eraseJwtToken();
+                Model.getInstance().getViewFactory().showLoginWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            }
+        }
+    }
+
+    private void onProfile() throws JsonProcessingException{
+        SendProfile sender = new SendProfile();
+        JsonNode response = sender.send(Token.getJwtToken());
+        if (response != null) {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+            } else {
+                receiver.getUser();
+                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.PROFILE);
+            }
+        }
+    }
+
+
 }
