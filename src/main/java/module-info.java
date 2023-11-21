@@ -28,7 +28,7 @@ module caiofurlan.clientdistributedsystems {
     exports caiofurlan.clientdistributedsystems.controllers.common;
     opens caiofurlan.clientdistributedsystems.controllers.common to javafx.fxml;
     exports caiofurlan.clientdistributedsystems.system.connection.receive;
-    exports caiofurlan.clientdistributedsystems.system.connection.send.admincrud;
+    exports caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud;
     exports caiofurlan.clientdistributedsystems.system.connection.send.usercrud;
     exports caiofurlan.clientdistributedsystems.system.connection.send.pointcrud;
     exports caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud;

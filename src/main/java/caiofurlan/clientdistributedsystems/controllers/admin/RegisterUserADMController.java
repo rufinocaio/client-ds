@@ -3,7 +3,7 @@ package caiofurlan.clientdistributedsystems.controllers.admin;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
-import caiofurlan.clientdistributedsystems.system.connection.send.admincrud.SendRegisterUserADM;
+import caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud.SendRegisterUserADM;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.collections.FXCollections;
 import javafx.fxml.Initializable;

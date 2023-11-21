@@ -1,4 +1,4 @@
-package caiofurlan.clientdistributedsystems.system.connection.send.admincrud;
+package caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud;
 
 import caiofurlan.clientdistributedsystems.App;
 import caiofurlan.clientdistributedsystems.system.connection.Connection;
