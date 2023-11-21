@@ -1,8 +1,9 @@
-package caiofurlan.clientdistributedsystems.system.connection.send;
+package caiofurlan.clientdistributedsystems.system.connection.send.usercrud;
 
 import caiofurlan.clientdistributedsystems.App;
 import caiofurlan.clientdistributedsystems.system.connection.Connection;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;

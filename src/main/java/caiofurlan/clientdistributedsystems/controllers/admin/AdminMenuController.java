@@ -2,9 +2,9 @@ package caiofurlan.clientdistributedsystems.controllers.admin;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
-import caiofurlan.clientdistributedsystems.system.connection.send.SendClientList;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogout;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendProfile;
+import caiofurlan.clientdistributedsystems.system.connection.send.admincrud.SendClientList;
 import caiofurlan.clientdistributedsystems.system.utilities.Token;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;

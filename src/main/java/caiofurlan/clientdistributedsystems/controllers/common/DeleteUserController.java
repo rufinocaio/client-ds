@@ -3,7 +3,7 @@ package caiofurlan.clientdistributedsystems.controllers.common;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
-import caiofurlan.clientdistributedsystems.system.connection.send.SendDeleteUser;
+import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendDeleteUser;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;

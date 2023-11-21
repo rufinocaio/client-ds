@@ -1,13 +1,14 @@
-package caiofurlan.clientdistributedsystems.system.connection.send;
+package caiofurlan.clientdistributedsystems.system.connection.send.admincrud;
 
 import caiofurlan.clientdistributedsystems.App;
 import caiofurlan.clientdistributedsystems.system.connection.Connection;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class SendDeleteUserADM extends Sender{
+public class SendDeleteUserADM extends Sender {
     public JsonNode generateDeleteUserADMData(String token, int userID) throws JsonProcessingException {
         this.setData(objectMapper.createObjectNode());
         ((ObjectNode) this.getData()).put("token", token);

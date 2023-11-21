@@ -1,13 +1,14 @@
-package caiofurlan.clientdistributedsystems.system.connection.send;
+package caiofurlan.clientdistributedsystems.system.connection.send.admincrud;
 
 import caiofurlan.clientdistributedsystems.App;
 import caiofurlan.clientdistributedsystems.system.connection.Connection;
+import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import caiofurlan.clientdistributedsystems.system.utilities.Token;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class SendRegisterUserADM extends Sender{
+public class SendRegisterUserADM extends Sender {
     public JsonNode generateRegisterUserADMData(String name, String email, String password, String type) throws JsonProcessingException {
         this.setData(objectMapper.createObjectNode());
         ((ObjectNode) this.getData()).put("token", Token.getJwtToken());

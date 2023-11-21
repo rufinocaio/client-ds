@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <AnchorPane prefHeight="130.0" prefWidth="770.0" style="-fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-width: 3; -fx-border-radius: 5;" styleClass="create_client_container" stylesheets="@../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <Label fx:id="id_label" layoutX="428.0" layoutY="59.0" prefHeight="17.0" prefWidth="24.0" text="ID: 1" />
    <Button fx:id="edit_button" layoutX="496.0" layoutY="50.0" mnemonicParsing="false" text="Editar" />

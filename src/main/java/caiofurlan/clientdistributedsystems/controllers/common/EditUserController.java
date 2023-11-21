@@ -4,7 +4,7 @@ import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.User;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
-import caiofurlan.clientdistributedsystems.system.connection.send.SendEditUser;
+import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendEditUser;
 import caiofurlan.clientdistributedsystems.system.utilities.Token;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
