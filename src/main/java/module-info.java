@@ -20,7 +20,6 @@ module caiofurlan.clientdistributedsystems {
     exports caiofurlan.clientdistributedsystems.controllers.admin;
     exports caiofurlan.clientdistributedsystems.controllers.user;
     exports caiofurlan.clientdistributedsystems.models;
-    exports caiofurlan.clientdistributedsystems.system;
     exports caiofurlan.clientdistributedsystems.system.connection;
     exports caiofurlan.clientdistributedsystems.system.utilities;
     exports caiofurlan.clientdistributedsystems.views;

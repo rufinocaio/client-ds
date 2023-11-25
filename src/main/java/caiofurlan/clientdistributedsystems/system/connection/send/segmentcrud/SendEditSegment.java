@@ -1,8 +1,8 @@
 package caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud;
 
-import caiofurlan.clientdistributedsystems.App;
+import caiofurlan.clientdistributedsystems.models.Connection;
+import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Segment;
-import caiofurlan.clientdistributedsystems.system.connection.Connection;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -22,7 +22,7 @@ public class SendEditSegment extends Sender {
         String response = null;
         try {
             if (IsValid.editSegmentIsValid(segmentID, segment) && IsValid.tokenIsValid(token)) {
-                Connection connection = App.getConnection();
+                Connection connection = Model.getInstance().getConnection();
                 response = connection.send(objectMapper.writeValueAsString(generateEditSegmentData(token, segmentID, segment)));
             }
         } catch (Exception e) {

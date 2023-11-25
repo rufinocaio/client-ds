@@ -3,7 +3,7 @@ package caiofurlan.clientdistributedsystems.controllers.admin;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud.SendDeleteUserADM;
-import caiofurlan.clientdistributedsystems.system.utilities.Token;
+import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -42,7 +42,7 @@ public class DeleteUserADMController implements Initializable{
 
     private void onDelete() throws JsonProcessingException {
         SendDeleteUserADM sender = new SendDeleteUserADM();
-        JsonNode response = sender.send(Token.getJwtToken(), Model.getInstance().getClientUser().getID());
+        JsonNode response = sender.send(TokenManager.getToken(), Model.getInstance().getClientUser().getID());
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {

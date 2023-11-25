@@ -1,7 +1,7 @@
 package caiofurlan.clientdistributedsystems.system.connection.send.usercrud;
 
-import caiofurlan.clientdistributedsystems.App;
-import caiofurlan.clientdistributedsystems.system.connection.Connection;
+import caiofurlan.clientdistributedsystems.models.Connection;
+import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,7 +25,7 @@ public class SendEditUser extends Sender {
         String response = null;
         try {
             if (IsValid.editUserIsValid(name, email, password, "user") && IsValid.tokenIsValid(token)) {
-                Connection connection = App.getConnection();
+                Connection connection = Model.getInstance().getConnection();
                 response = connection.send(objectMapper.writeValueAsString(generateEditUserData(token, userID, name, email, password)));
             }
         } catch (Exception e) {

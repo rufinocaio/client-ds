@@ -4,7 +4,7 @@ import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogin;
-import caiofurlan.clientdistributedsystems.system.utilities.Token;
+import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -56,8 +56,8 @@ public class LogInController implements Initializable {
                     Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
                 } else {
                     Stage stage = (Stage) error_label.getScene().getWindow();
-                    Token.saveJwtToken(receiver.getToken());
-                    if (Token.isTokenAdmin(Token.getJwtToken())) {
+                    TokenManager.saveToken(receiver.getToken());
+                    if (TokenManager.isTokenAdmin(TokenManager.getToken())) {
                         Model.getInstance().getViewFactory().showAdminWindow();
                     } else {
                         Model.getInstance().getViewFactory().showUserWindow();

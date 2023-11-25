@@ -5,7 +5,7 @@ import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogout;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendProfile;
 import caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud.SendClientList;
-import caiofurlan.clientdistributedsystems.system.utilities.Token;
+import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -58,7 +58,7 @@ public class AdminMenuController implements Initializable {
 
     private void onUsersList() throws JsonProcessingException {
         SendClientList sender = new SendClientList();
-        JsonNode response = sender.send(Token.getJwtToken());
+        JsonNode response = sender.send(TokenManager.getToken());
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
@@ -74,14 +74,14 @@ public class AdminMenuController implements Initializable {
         Stage stage = (Stage) logout_button.getScene().getWindow();
 
         SendLogout sender = new SendLogout();
-        JsonNode response = sender.send(Token.getJwtToken());
+        JsonNode response = sender.send(TokenManager.getToken());
         if (response != null)
         {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
                 Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
             } else {
-                Token.eraseJwtToken();
+                TokenManager.eraseToken();
                 Model.getInstance().getViewFactory().showLoginWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             }
@@ -90,7 +90,7 @@ public class AdminMenuController implements Initializable {
 
     private void onProfile() throws JsonProcessingException{
         SendProfile sender = new SendProfile();
-        JsonNode response = sender.send(Token.getJwtToken());
+        JsonNode response = sender.send(TokenManager.getToken());
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {

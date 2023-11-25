@@ -5,13 +5,13 @@ public class Segment {
     Point ponto_origem;
     Point ponto_destino;
     String direcao;
-    String distancia;
+    int distancia;
     String obs;
 
     public Segment() {
     }
 
-    public Segment(Point ponto_origem, Point ponto_destino, String direcao, String distancia, String obs) {
+    public Segment(Point ponto_origem, Point ponto_destino, String direcao, int distancia, String obs) {
         this.ponto_origem = ponto_origem;
         this.ponto_destino = ponto_destino;
         this.direcao = direcao;
@@ -31,7 +31,7 @@ public class Segment {
         return direcao;
     }
 
-    public String getDistancia() {
+    public int getDistancia() {
         return distancia;
     }
 

@@ -1,7 +1,7 @@
 package caiofurlan.clientdistributedsystems.system.connection.send;
 
-import caiofurlan.clientdistributedsystems.App;
-import caiofurlan.clientdistributedsystems.system.connection.Connection;
+import caiofurlan.clientdistributedsystems.models.Connection;
+import caiofurlan.clientdistributedsystems.models.Model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -19,7 +19,7 @@ public class SendLogin extends Sender{
     public JsonNode send(String email, String password) throws JsonProcessingException {
         String response = null;
         try {
-            Connection connection = App.getConnection();
+            Connection connection = Model.getInstance().getConnection();
             response = connection.send(objectMapper.writeValueAsString(generateLoginData(email, password)));
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -8,11 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Token {
+public class TokenManager {
     private static final String FILE_PATH = "jwt_token.txt";
     private static final String SECRET_KEY = "AoT3QFTTEkj16rCby/TPVBWvfSQHL3GeEz3zVwEd6LDrQDT97sgDY8HJyxgnH79jupBWFOQ1+7fRPBLZfpuA2lwwHqTgk+NJcWQnDpHn31CVm63Or5c5gb4H7/eSIdd+7hf3v+0a5qVsnyxkHbcxXquqk9ezxrUe93cFppxH4/kF/kGBBamm3kuUVbdBUY39c4U3NRkzSO+XdGs69ssK5SPzshn01axCJoNXqqj+ytebuMwF8oI9+ZDqj/XsQ1CLnChbsL+HCl68ioTeoYU9PLrO4on+rNHGPI0Cx6HrVse7M3WQBPGzOd1TvRh9eWJrvQrP/hm6kOR7KrWKuyJzrQh7OoDxrweXFH8toXeQRD8=";
 
-    public static void saveJwtToken(String token) {
+    public static void saveToken(String token) {
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
             writer.write(token);
         } catch (IOException e) {
@@ -20,7 +20,7 @@ public class Token {
         }
     }
 
-    public static String getJwtToken() {
+    public static String getToken() {
         try (Scanner scanner = new Scanner(new File(FILE_PATH))) {
             if (scanner.hasNext()) {
                 return scanner.nextLine();
@@ -31,14 +31,11 @@ public class Token {
         return null;
     }
 
-    public static boolean eraseJwtToken() {
+    public static void eraseToken() {
         File jwt = new File(FILE_PATH);
-
         if (jwt.exists()) {
-            return jwt.delete();
+            jwt.delete();
         }
-
-        return false;
     }
 
     public static boolean isTokenAdmin(String token) {

@@ -12,6 +12,7 @@ public class Model {
     private final ViewFactory viewFactory;
     private final ObjectMapper objectMapper;
 
+    private Connection connection;
     private User user;
     private User clientUser;
     private ObservableList<User> clients;
@@ -19,6 +20,7 @@ public class Model {
     private Model() {
         this.viewFactory = new ViewFactory();
         this.objectMapper = new ObjectMapper();
+        this.connection = new Connection();
         this.user = new User();
         this.clientUser = new User();
         this.clients = FXCollections.observableArrayList();
@@ -33,6 +35,10 @@ public class Model {
 
     public ViewFactory getViewFactory() {
         return viewFactory;
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 
     public User getUser() {

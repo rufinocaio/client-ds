@@ -1,8 +1,8 @@
 package caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud;
 
-import caiofurlan.clientdistributedsystems.App;
+import caiofurlan.clientdistributedsystems.models.Connection;
+import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Segment;
-import caiofurlan.clientdistributedsystems.system.connection.Connection;
 import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -19,7 +19,7 @@ public class SendRegisterSegment extends Sender {
     public JsonNode send(String token, Segment segment) throws JsonProcessingException {
         String response = null;
         try {
-            Connection connection = App.getConnection();
+            Connection connection = Model.getInstance().getConnection();
             response = connection.send(objectMapper.writeValueAsString(generateRegisterSegmentData(token, segment)));
         } catch (Exception e) {
             throw new RuntimeException(e);

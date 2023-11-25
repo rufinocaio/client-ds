@@ -5,7 +5,7 @@ import caiofurlan.clientdistributedsystems.models.User;
 import caiofurlan.clientdistributedsystems.system.connection.IsValid;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud.SendEditUserADM;
-import caiofurlan.clientdistributedsystems.system.utilities.Token;
+import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
@@ -57,7 +57,7 @@ public class EditUserADMController implements Initializable {
         try {
             if (IsValid.editUserIsValid(name, email, password, type)) {
                 password = DigestUtils.md5Hex(password).toUpperCase();
-                JsonNode response = sender.send(Token.getJwtToken(), Model.getInstance().getClientUser().getID(), name, email, password, type);
+                JsonNode response = sender.send(TokenManager.getToken(), Model.getInstance().getClientUser().getID(), name, email, password, type);
                 if (response != null) {
                     Receiver receiver = new Receiver(response);
                     if (receiver.getError()) {
