@@ -6,10 +6,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.Map;
-
 public class Receiver {
-    private static final ObjectMapper jackson = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private String action;
     private boolean error;
@@ -25,52 +23,19 @@ public class Receiver {
         }
     }
 
-    public Receiver(String action) {
-        this.action = action;
-    }
-
-    public Receiver(String action, JsonNode data) {
-        this.action = action;
-        this.data = data;
-        this.error = false;
-    }
-
-    public Receiver(String action, String message, boolean error) {
-        this.action = action;
-        this.message = message;
-        this.error = error;
-    }
-
     public Receiver() {
-    }
-
-    public static Map<String, Object> stringToMap(String json) throws JsonProcessingException {
-        Map<String, Object> map = jackson.readValue(json, Map.class);
-        return map;
     }
 
     public String getAction() {
         return action;
     }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public boolean getError() {
         return error;
-    }
-
-    public void setError(boolean error) {
-        this.error = error;
     }
 
     public String getToken() {
@@ -110,19 +75,35 @@ public class Receiver {
     }
 
     public void getUser() throws JsonProcessingException {
-        JsonNode rootNode = jackson.readTree(data.toString());
+        JsonNode rootNode = objectMapper.readTree(data.toString());
         if (data.has("user")) {
             JsonNode jsonNode = rootNode.get("user");
-            User tmpUser = new User(jsonNode.get("name").asText(), jsonNode.get("email").asText(), jsonNode.get("type").asText(), jsonNode.get("id").asInt());
-            Model.getInstance().setUser(tmpUser);
+            User tmpUser = objectMapper.treeToValue(jsonNode, User.class);
+            Model.getInstance().setSelfUser(tmpUser);
         }
     }
 
-    public void getClientList() throws JsonProcessingException {
-        JsonNode rootNode = jackson.readTree(data.toString());
+    public void getUserList() throws JsonProcessingException {
+        JsonNode rootNode = objectMapper.readTree(data.toString());
         if (data.has("users")) {
             JsonNode jsonNode = rootNode.get("users");
-            Model.getInstance().setClients(jsonNode);
+            Model.getInstance().setUserList(jsonNode);
+        }
+    }
+
+    public void getPointList() throws JsonProcessingException {
+        JsonNode rootNode = objectMapper.readTree(data.toString());
+        if (data.has("pontos")) {
+            JsonNode jsonNode = rootNode.get("pontos");
+            Model.getInstance().setPointList(jsonNode);
+        }
+    }
+
+    public void getSegmentList() throws JsonProcessingException {
+        JsonNode rootNode = objectMapper.readTree(data.toString());
+        if (data.has("segmentos")) {
+            JsonNode jsonNode = rootNode.get("segmentos");
+            Model.getInstance().setSegmentList(jsonNode);
         }
     }
 

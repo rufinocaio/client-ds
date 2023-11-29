@@ -10,20 +10,24 @@ import javafx.collections.ObservableList;
 public class Model {
     private static Model model = null;
     private final ViewFactory viewFactory;
+    private final Connection connection;
     private final ObjectMapper objectMapper;
 
-    private Connection connection;
+    private User selfUser;
     private User user;
-    private User clientUser;
-    private ObservableList<User> clients;
+    private ObservableList<User> userList;
+    private Point point;
+    private ObservableList<Point> pointList;
+    private Segment segment;
+    private ObservableList<Segment> segmentList;
 
     private Model() {
         this.viewFactory = new ViewFactory();
-        this.objectMapper = new ObjectMapper();
         this.connection = new Connection();
-        this.user = new User();
-        this.clientUser = new User();
-        this.clients = FXCollections.observableArrayList();
+        this.objectMapper = new ObjectMapper();
+        this.userList = FXCollections.observableArrayList();
+        this.pointList = FXCollections.observableArrayList();
+        this.segmentList = FXCollections.observableArrayList();
     }
 
     public static synchronized Model getInstance() {
@@ -41,35 +45,97 @@ public class Model {
         return connection;
     }
 
-    public User getUser() {
-        return user;
+
+    // User CRUD
+    public User getSelfUser() {
+        return selfUser;
+    }
+
+    public void setSelfUser(User selfUser) {
+        this.selfUser = selfUser;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
 
-    public void setClientUser(User clientUser) {
-        this.clientUser = clientUser;
+    public User getUser() {
+        return user;
     }
 
-    public User getClientUser() {
-        return clientUser;
+    public ObservableList<User> getUserList() {
+        return userList;
     }
 
-    public void setClients(JsonNode jsonNode) throws JsonProcessingException {
+    public void setUserList(JsonNode jsonNode) throws JsonProcessingException {
         if (jsonNode != null && jsonNode.isArray()) {
             ObservableList<User> users = FXCollections.observableArrayList( );
-            for (JsonNode clientNode : jsonNode) {
-                User client = objectMapper.treeToValue(clientNode, User.class);
-                System.out.println(objectMapper.writeValueAsString(client));
-                users.add(client);
+            for (JsonNode userNode : jsonNode) {
+                users.add(objectMapper.treeToValue(userNode, User.class));
             }
-            this.clients = users;
+            this.userList = users;
+        } else {
+            this.userList = FXCollections.observableArrayList();
         }
     }
 
-    public ObservableList<User> getClients() {
-        return clients;
+    // Point CRUD
+    public void setPoint(Point point) {
+        this.point = point;
     }
+
+    public Point getPoint() {
+        return point;
+    }
+
+    public ObservableList<Point> getPointList() {
+        return pointList;
+    }
+
+    public void setPointList(JsonNode jsonNode) throws JsonProcessingException {
+        if (jsonNode != null && jsonNode.isArray()) {
+            ObservableList<Point> points = FXCollections.observableArrayList( );
+            for (JsonNode pointNode : jsonNode) {
+                points.add(objectMapper.treeToValue(pointNode, Point.class));
+            }
+            this.pointList = points;
+        } else {
+            this.pointList = FXCollections.observableArrayList();
+        }
+    }
+
+    public Point getPointByName(String name) {
+        for (Point point : pointList) {
+            if (point.getName().equals(name)) {
+                return point;
+            }
+        }
+        return null;
+    }
+
+    // Segment CRUD
+    public void setSegment(Segment segment) {
+        this.segment = segment;
+    }
+
+    public Segment getSegment() {
+        return segment;
+    }
+
+    public ObservableList<Segment> getSegmentList() {
+        return segmentList;
+    }
+
+    public void setSegmentList(JsonNode jsonNode) throws JsonProcessingException {
+        if (jsonNode != null && jsonNode.isArray()) {
+            ObservableList<Segment> segments = FXCollections.observableArrayList( );
+            for (JsonNode segmentNode : jsonNode) {
+                segments.add(objectMapper.treeToValue(segmentNode, Segment.class));
+            }
+            this.segmentList = segments;
+        } else {
+            this.segmentList = FXCollections.observableArrayList();
+        }
+    }
+
 }

@@ -1,7 +1,7 @@
 package caiofurlan.clientdistributedsystems.controllers;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogin;
 import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
@@ -40,20 +40,20 @@ public class LogInController implements Initializable {
 
     private void onRegister() {
         Model.getInstance().getViewFactory().closeStage((Stage) login_button.getScene().getWindow());
-        Model.getInstance().getViewFactory().showRegisterWindow();
+        Model.getInstance().getViewFactory().showAutoRegisterUserWindow();
     }
 
     private void onLogin() throws Exception {
         SendLogin sender = new SendLogin();
         String email = email_field.getText();
         String password = password_field.getText();
-        if (IsValid.loginIsValid(email, password)) {
+        if (DataValidation.loginValidation(email, password)) {
             password = DigestUtils.md5Hex(password).toUpperCase();
             JsonNode response = sender.send(email, password);
             if (response != null) {
                 Receiver receiver = new Receiver(response);
                 if (receiver.getError()) {
-                    Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                    Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
                 } else {
                     Stage stage = (Stage) error_label.getScene().getWindow();
                     TokenManager.saveToken(receiver.getToken());

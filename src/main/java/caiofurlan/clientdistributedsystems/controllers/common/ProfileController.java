@@ -16,7 +16,7 @@ public class ProfileController implements Initializable {
 
     @Override
     public void initialize(java.net.URL location, java.util.ResourceBundle resources) {
-        setUserInfo(Model.getInstance().getUser());
+        setUserInfo(Model.getInstance().getSelfUser());
         edit_button.setOnAction(event -> {
             try {
                 onEditUser();
@@ -37,11 +37,11 @@ public class ProfileController implements Initializable {
     }
 
     private void onEditUser() {
-        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.EDIT_USER);
+        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.AUTO_EDIT_USER);
     }
 
     private void onDeleteUser() {
-        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.DELETE_USER);
+        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.AUTO_DELETE_USER);
     }
 
 }

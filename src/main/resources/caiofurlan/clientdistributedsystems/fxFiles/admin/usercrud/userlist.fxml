@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="userslist_container" stylesheets="@../../../style/userslist.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.admin.usercrud.UserListController">
+   <Text layoutX="298.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de usuários cadastrados" />
+   <ListView fx:id="user_list_view" layoutX="14.0" layoutY="30.0" prefHeight="650.0" prefWidth="800.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0" />
+</AnchorPane>

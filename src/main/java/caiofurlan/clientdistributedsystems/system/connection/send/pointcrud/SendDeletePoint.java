@@ -2,28 +2,31 @@ package caiofurlan.clientdistributedsystems.system.connection.send.pointcrud;
 
 import caiofurlan.clientdistributedsystems.models.Connection;
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.connection.IsValid;
+import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
+import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class SendDeletePoint extends Sender {
-    public JsonNode generateDeletePointData(String token, int pointID) throws JsonProcessingException {
-        this.setData(objectMapper.createObjectNode());
-        ((ObjectNode) this.getData()).put("token", token);
-        ((ObjectNode) this.getData()).put("ponto_id", pointID);
 
-        return generateFinalData("excluir-ponto", this.getData());
+    public SendDeletePoint() {
+        super();
+        setAction("excluir-ponto");
     }
 
-    public JsonNode send(String token, int pointID) throws JsonProcessingException {
+    public JsonNode generateDeletePointData(int pointID) throws JsonProcessingException {
+        ((ObjectNode) this.getData()).put("token", TokenManager.getToken());
+        ((ObjectNode) this.getData()).put("ponto_id", pointID);
+        return generateFinalData();
+    }
+
+    public JsonNode send(int pointID) throws JsonProcessingException {
         String response = null;
         try {
-            if (IsValid.tokenIsValid(token)) {
-                Connection connection = Model.getInstance().getConnection();
-                response = connection.send(objectMapper.writeValueAsString(generateDeletePointData(token, pointID)));
-            }
+            Connection connection = Model.getInstance().getConnection();
+            response = connection.send(objectMapper.writeValueAsString(generateDeletePointData(pointID)));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

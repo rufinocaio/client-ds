@@ -48,11 +48,11 @@ public class UserMenuController implements Initializable {
 
     private void onProfile() throws Exception{
         SendProfile sender = new SendProfile();
-        JsonNode response = sender.send(TokenManager.getToken());
+        JsonNode response = sender.send();
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
-                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
             } else {
                 receiver.getUser();
                 Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.PROFILE);
@@ -65,19 +65,17 @@ public class UserMenuController implements Initializable {
     }
 
     public void onLogOut() throws JsonProcessingException {
-        Stage stage = (Stage) logout_button.getScene().getWindow();
-
         SendLogout sender = new SendLogout();
-        JsonNode response = sender.send(TokenManager.getToken());
+        JsonNode response = sender.send();
         if (response != null)
         {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
-                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
             } else {
                 TokenManager.eraseToken();
                 Model.getInstance().getViewFactory().showLoginWindow();
-                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().closeStage((Stage) logout_button.getScene().getWindow());
             }
         }
     }

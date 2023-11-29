@@ -1,24 +1,32 @@
 package caiofurlan.clientdistributedsystems.system.connection.send;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class Sender {
-    public static final ObjectMapper objectMapper = new ObjectMapper();
-    private JsonNode data;
-    private String message;
-    private String error;
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public abstract class Sender {
 
-    public Sender(JsonNode data, String message, String error) {
-        this.data = data;
-        this.message = message;
-        this.error = error;
-    }
+    @JsonIgnore
+    public final ObjectMapper objectMapper;
+    private JsonNode data;
+    private String action;
 
     public Sender() {
-        this.data = objectMapper.createObjectNode();
+        objectMapper = new ObjectMapper();
+        data = objectMapper.createObjectNode();
+    }
+
+    private String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 
     public JsonNode getData() {
@@ -29,35 +37,18 @@ public class Sender {
         this.data = data;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-
-    public JsonNode generateFinalData(String action, JsonNode data) throws JsonProcessingException {
-        this.data = objectMapper.createObjectNode();
-        ((ObjectNode) this.getData()).put("action", action);
-        ((ObjectNode) this.getData()).set("data", data);
-        return this.data;
+    public JsonNode generateFinalData() throws JsonProcessingException {
+        /*JsonNode jsonNode = objectMapper.createObjectNode();
+        ((ObjectNode) jsonNode).put("action", getAction());
+        ((ObjectNode) jsonNode).set("data", getData());
+        return jsonNode;*/
+        return objectMapper.convertValue(this, JsonNode.class);
     }
 
     public JsonNode toJsonNode (String json) throws JsonProcessingException {
         if (json == null || json.isEmpty()) return null;
         return objectMapper.readTree(json);
     }
-
     /* ----------------- */
 
 }

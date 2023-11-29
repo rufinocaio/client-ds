@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.admin.segmentcrud.EditSegmentController">
+    <VBox layoutX="282.0" layoutY="166.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="40.0">
+        <Text layoutX="21.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto inicial:" />
+        <TextField fx:id="startpoint_field" layoutX="21.0" layoutY="144.0" />
+        <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto final:" />
+        <TextField fx:id="endpoint_field" layoutX="21.0" layoutY="57.0" />
+        <Button fx:id="select_point_button" layoutX="21.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: #0000AA;" text="Selecionar pontos" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Direção" />
+        <TextField fx:id="direction_field" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Distancia (em metros)" />
+        <TextField fx:id="distance_field" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação" />
+        <TextField fx:id="obs_field" />
+        <HBox>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Button fx:id="save_button" mnemonicParsing="false" text="Salvar">
+                <HBox.margin>
+                    <Insets right="30.0" />
+                </HBox.margin></Button>
+            <Button fx:id="delete_button" layoutX="150.0" layoutY="10.0" mnemonicParsing="false" style="-fx-text-fill: #000000; -fx-background-color: #FF0000;" text="Deletar segmento">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin></Button>
+        </HBox>
+        <Button fx:id="left_button" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-max-width: 100; -fx-font-size: 1.3em; -fx-max-height: 15;" text="Voltar" />
+        <Label fx:id="error_label" styleClass="error_label" />
+    </VBox>
+</AnchorPane>

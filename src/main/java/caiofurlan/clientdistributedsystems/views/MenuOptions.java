@@ -1,12 +1,28 @@
 package caiofurlan.clientdistributedsystems.views;
 
 public enum MenuOptions {
-    DASHBOARD,
+    // Common
     PROFILE,
-    EDIT_USER,
-    DELETE_USER,
+    AUTO_EDIT_USER,
+    AUTO_DELETE_USER,
+    // User
+    DASHBOARD,
+    // Admin
+    // User CRUD
     REGISTER_USER,
-    EDIT_USER_ADM,
-    DELETE_USER_ADM,
-    USERS_LIST,
+    EDIT_USER,
+    USER_LIST,
+    DELETE_USER,
+    // Point CRUD
+    REGISTER_POINT,
+    EDIT_POINT,
+    POINT_LIST,
+    DELETE_POINT,
+    // Segment CRUD
+    REGISTER_SEGMENT,
+    EDIT_SEGMENT,
+    SEGMENT_LIST,
+    DELETE_SEGMENT,
+    SELECT_POINT,
+    PREVIUS_MENU,
 }

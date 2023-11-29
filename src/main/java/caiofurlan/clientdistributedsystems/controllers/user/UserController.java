@@ -18,11 +18,11 @@ public class UserController implements Initializable {
                 case PROFILE:
                     user_parent.setCenter(Model.getInstance().getViewFactory().getProfileView());
                     break;
-                case EDIT_USER:
-                    user_parent.setCenter(Model.getInstance().getViewFactory().getEditUserView());
+                case AUTO_EDIT_USER:
+                    user_parent.setCenter(Model.getInstance().getViewFactory().getAutoEditUserView());
                     break;
-                case DELETE_USER:
-                    user_parent.setCenter(Model.getInstance().getViewFactory().getDeleteUserView());
+                case AUTO_DELETE_USER:
+                    user_parent.setCenter(Model.getInstance().getViewFactory().getAutoDeleteUserView());
                     break;
                 default:
                     user_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());

@@ -4,7 +4,9 @@ import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogout;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendProfile;
-import caiofurlan.clientdistributedsystems.system.connection.send.adminusercrud.SendClientList;
+import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.SendPointList;
+import caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud.SendSegmentList;
+import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendUserList;
 import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,8 +21,13 @@ import java.util.ResourceBundle;
 public class AdminMenuController implements Initializable {
     public Button user_register_button;
     public Button users_button;
+    public Button point_register_button;
+    public Button points_button;
+    public Button segment_register_button;
+    public Button segments_button;
     public Button profile_button;
     public Button logout_button;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -31,7 +38,23 @@ public class AdminMenuController implements Initializable {
         user_register_button.setOnAction(event -> onRegisterUser ());
         users_button.setOnAction(event -> {
             try {
-                onUsersList();
+                onUserList();
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        point_register_button.setOnAction(event -> onRegisterPoint ());
+        points_button.setOnAction(event -> {
+            try {
+                onPointList();
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        segment_register_button.setOnAction(event -> onRegisterSegment ());
+        segments_button.setOnAction(event -> {
+            try {
+                onSegmentList();
             } catch (JsonProcessingException e) {
                 throw new RuntimeException(e);
             }
@@ -56,45 +79,79 @@ public class AdminMenuController implements Initializable {
         Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_USER);
     }
 
-    private void onUsersList() throws JsonProcessingException {
-        SendClientList sender = new SendClientList();
-        JsonNode response = sender.send(TokenManager.getToken());
+    private void onUserList() throws JsonProcessingException {
+        SendUserList sender = new SendUserList();
+        JsonNode response = sender.send();
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
-                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
             } else {
-                receiver.getClientList();
-                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.USERS_LIST);
+                receiver.getUserList();
+                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.USER_LIST);
+            }
+        }
+    }
+
+    private void onRegisterPoint() {
+        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_POINT);
+    }
+
+    private void onPointList() throws JsonProcessingException {
+        SendPointList sender = new SendPointList();
+        JsonNode response = sender.send();
+        if (response != null) {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
+            } else {
+                receiver.getPointList();
+                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.POINT_LIST);
+            }
+        }
+    }
+
+    private void onRegisterSegment() {
+        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_SEGMENT);
+    }
+
+    private void onSegmentList() throws JsonProcessingException {
+        SendSegmentList sender = new SendSegmentList();
+        JsonNode response = sender.send();
+        if (response != null) {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
+            } else {
+                receiver.getSegmentList();
+                Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.SEGMENT_LIST);
             }
         }
     }
 
     public void onLogOut() throws JsonProcessingException {
-        Stage stage = (Stage) logout_button.getScene().getWindow();
-
         SendLogout sender = new SendLogout();
-        JsonNode response = sender.send(TokenManager.getToken());
+        JsonNode response = sender.send();
         if (response != null)
         {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
-                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
             } else {
                 TokenManager.eraseToken();
                 Model.getInstance().getViewFactory().showLoginWindow();
-                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().closeStage((Stage) logout_button.getScene().getWindow());
             }
         }
     }
 
     private void onProfile() throws JsonProcessingException{
         SendProfile sender = new SendProfile();
-        JsonNode response = sender.send(TokenManager.getToken());
+        JsonNode response = sender.send();
         if (response != null) {
             Receiver receiver = new Receiver(response);
             if (receiver.getError()) {
-                Model.getInstance().getViewFactory().showErrorMessage(receiver.getMessage());
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
             } else {
                 receiver.getUser();
                 Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.PROFILE);

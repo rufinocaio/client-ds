@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.common.AutoEditUserController">
+    <VBox layoutX="282.0" layoutY="166.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="40.0">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+        <TextField fx:id="name_field" />
+        <Text layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+        <TextField fx:id="email_field" layoutX="10.0" layoutY="27.0" />
+        <Text layoutX="10.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
+        <PasswordField fx:id="password_field" layoutX="10.0" layoutY="83.0" />
+        <HBox>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <Button fx:id="save_button" mnemonicParsing="false" text="Salvar">
+            <HBox.margin>
+               <Insets left="20.0" right="20.0" />
+            </HBox.margin></Button>
+         <Button fx:id="left_button" layoutX="150.0" layoutY="10.0" mnemonicParsing="false" style="-fx-text-fill: #000000; -fx-background-color: #FF0000;" text="Voltar">
+            <HBox.margin>
+               <Insets right="20.0" />
+            </HBox.margin></Button>
+        </HBox>
+      <Label fx:id="error_label" styleClass="error_label" />
+    </VBox>
+</AnchorPane>

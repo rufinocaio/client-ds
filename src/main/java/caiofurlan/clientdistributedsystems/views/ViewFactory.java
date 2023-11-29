@@ -15,19 +15,27 @@ public class ViewFactory {
 
     //Common views
     private AnchorPane profileView;
-    private AnchorPane editUserView;
-    private AnchorPane deleteUserView;
-
-    // Client views
+    private AnchorPane autoEditUserView;
+    private AnchorPane autoDeleteUserView;
+    // User views
     private AnchorPane dashboardView;
-    /* ----------------- */
-
     // Admin views
+    // User CRUD
     private AnchorPane registerUserView;
     private AnchorPane usersListView;
-    private AnchorPane editUserADMView;
-    private AnchorPane deleteUserADMView;
-    /* ----------------- */
+    private AnchorPane editUserView;
+    private AnchorPane deleteUserView;
+    // Point CRUD
+    private AnchorPane registerPointView;
+    private AnchorPane pointsListView;
+    private AnchorPane editPointView;
+    private AnchorPane deletePointView;
+    // Segment CRUD
+    private AnchorPane registerSegmentView;
+    private AnchorPane segmentsListView;
+    private AnchorPane editSegmentView;
+    private AnchorPane deleteSegmentView;
+    private AnchorPane selectPointView;
 
     public ViewFactory() {
         this.selectedMenuItem = new SimpleObjectProperty<>();
@@ -47,13 +55,23 @@ public class ViewFactory {
         stage.show();
     }
 
-    /* Common views */
     public ObjectProperty<MenuOptions> getSelectedMenuItem() {
         return selectedMenuItem;
     }
 
     public void closeStage(Stage stage) {
         stage.close();
+    }
+
+    /* Common views */
+
+    public void showConnectWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/connect.fxml"));
+        createStage(loader, "Conecte-se!");
+    }
+
+    public void showErrorWindow(String message) {
+        JOptionPane.showMessageDialog(null, message, "Erro", JOptionPane.ERROR_MESSAGE);
     }
 
     public void showLoginWindow() {
@@ -72,42 +90,32 @@ public class ViewFactory {
         return profileView;
     }
 
-    public AnchorPane getEditUserView() {
-        if (editUserView == null) {
+    public AnchorPane getAutoEditUserView() {
+        if (autoEditUserView == null) {
             try {
-                editUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/edituser.fxml")).load();
+                autoEditUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autoedituser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return editUserView;
+        return autoEditUserView;
     }
 
-    public AnchorPane getDeleteUserView() {
-        if (deleteUserView == null) {
+    public AnchorPane getAutoDeleteUserView() {
+        if (autoDeleteUserView == null) {
             try {
-                deleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/deleteuser.fxml")).load();
+                autoDeleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autodeleteuser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return deleteUserView;
+        return autoDeleteUserView;
     }
 
-    public void showConnectWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/connect.fxml"));
-        createStage(loader, "Conecte-se!");
-    }
-
-    public void showErrorMessage(String message) {
-        JOptionPane.showMessageDialog(null, message, "Erro", JOptionPane.ERROR_MESSAGE);
-    }
-
-    public void showRegisterWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/registeruser.fxml"));
+    public void showAutoRegisterUserWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/autoregisteruser.fxml"));
         createStage(loader, "Registre-se!");
     }
-    /* ----------------- */
 
     /* User views */
 
@@ -136,10 +144,11 @@ public class ViewFactory {
         createStage(loader, "Bem-vindo!");
     }
 
+    /* User CRUD */
     public AnchorPane getRegisterUserView() {
         if (registerUserView == null) {
             try {
-                registerUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/registeruseradm.fxml")).load();
+                registerUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/usercrud/registeruser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -150,7 +159,7 @@ public class ViewFactory {
     public AnchorPane getUsersListView() {
         if (usersListView == null) {
             try {
-                usersListView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/userslist.fxml")).load();
+                usersListView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/usercrud/userlist.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -158,38 +167,161 @@ public class ViewFactory {
         return usersListView;
     }
 
-    public AnchorPane getEditUserAdmView() {
-        if (editUserADMView == null) {
+    public AnchorPane getEditUserView() {
+        if (editUserView == null) {
             try {
-                editUserADMView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/edituseradm.fxml")).load();
+                editUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/usercrud/edituser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return editUserADMView;
+        return editUserView;
     }
 
-    public AnchorPane getDeleteUserAdmView() {
-        if (deleteUserADMView == null) {
+    public AnchorPane getDeleteUserView() {
+        if (deleteUserView == null) {
             try {
-                deleteUserADMView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/deleteuseradm.fxml")).load();
+                deleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/usercrud/deleteuser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return deleteUserADMView;
+        return deleteUserView;
     }
+
+    /* Point CRUD */
+    public AnchorPane getRegisterPointView() {
+        if (registerPointView == null) {
+            try {
+                registerPointView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/pointcrud/registerpoint.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return registerPointView;
+    }
+
+    public AnchorPane getPointsListView() {
+        if (pointsListView == null) {
+            try {
+                pointsListView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/pointcrud/pointlist.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return pointsListView;
+    }
+
+    public AnchorPane getEditPointView() {
+        if (editPointView == null) {
+            try {
+                editPointView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/pointcrud/editpoint.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editPointView;
+    }
+
+    public AnchorPane getDeletePointView() {
+        if (deletePointView == null) {
+            try {
+                deletePointView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/pointcrud/deletepoint.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return deletePointView;
+    }
+
+    /* Segment CRUD */
+
+    public AnchorPane getRegisterSegmentView() {
+        if (registerSegmentView == null) {
+            try {
+                registerSegmentView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/registersegment.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return registerSegmentView;
+    }
+
+    public AnchorPane getSegmentsListView() {
+        if (segmentsListView == null) {
+            try {
+                segmentsListView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/segmentlist.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return segmentsListView;
+    }
+
+    public AnchorPane getEditSegmentView() {
+        if (editSegmentView == null) {
+            try {
+                editSegmentView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/editsegment.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editSegmentView;
+    }
+
+    public AnchorPane getDeleteSegmentView() {
+        if (deleteSegmentView == null) {
+            try {
+                deleteSegmentView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/deletesegment.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return deleteSegmentView;
+    }
+
+    public AnchorPane getSelectPointView() {
+        if (selectPointView == null) {
+            try {
+                selectPointView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/selectpointlist.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return selectPointView;
+    }
+
+    public void showSelectPointWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/admin/segmentcrud/selectpointlist.fxml"));
+        createStage(loader, "Selecione um ponto!");
+    }
+
 
     public void resetAllAnchorPanes() {
+        //Common views
         profileView = null;
-        editUserView = null;
-        deleteUserView = null;
+        autoEditUserView = null;
+        autoDeleteUserView = null;
+
+        // User views
+        dashboardView = null;
+
+        // Admin views
+        // User CRUD
         registerUserView = null;
         usersListView = null;
-        editUserADMView = null;
-        deleteUserADMView = null;
+        editUserView = null;
+        deleteUserView = null;
+        // Point CRUD
+        registerPointView = null;
+        pointsListView = null;
+        editPointView = null;
+        deletePointView = null;
+        // Segment CRUD
+        registerSegmentView = null;
+        segmentsListView = null;
+        editSegmentView = null;
+        deleteSegmentView = null;
+        selectPointView = null;
     }
-
-    /* ----------------- */
-
 }
