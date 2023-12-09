@@ -13,6 +13,8 @@ public class Segment {
     private String direcao;
     @JsonProperty("distancia")
     private int distancia;
+    @JsonProperty("bloqueado")
+    private boolean bloqueado;
     @JsonProperty("obs")
     private String obs;
     @JsonProperty("id")
@@ -21,12 +23,13 @@ public class Segment {
     public Segment() {
     }
 
-    public Segment(Point ponto_origem, Point ponto_destino, String direcao, int distancia, String obs) {
+    public Segment(Point ponto_origem, Point ponto_destino, String direcao, int distancia, boolean bloqueado, String obs) {
         this.pontoOrigem = ponto_origem;
         this.pontoDestino = ponto_destino;
         this.direcao = direcao;
         this.distancia = distancia;
         this.obs = obs;
+        this.bloqueado = bloqueado;
     }
 
     public Point getPontoOrigem() {
@@ -67,6 +70,14 @@ public class Segment {
 
     public void setObs(String obs) {
         this.obs = obs;
+    }
+
+    public boolean getBloqueado() {
+        return bloqueado;
+    }
+
+    public void setBloqueado(boolean bloqueado) {
+        this.bloqueado = bloqueado;
     }
 
     public int getId() {

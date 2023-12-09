@@ -11,6 +11,7 @@ import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -24,6 +25,7 @@ public class EditSegmentController implements Initializable {
     public Button select_point_button;
     public TextField direction_field;
     public TextField distance_field;
+    public CheckBox blocked_checkbox;
     public TextField obs_field;
     public Button save_button;
     public Button delete_button;
@@ -32,6 +34,8 @@ public class EditSegmentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        startpoint_field.setEditable(false);
+        endpoint_field.setEditable(false);
         setSegmentInfo();
         select_point_button.setOnAction(event -> onSelectPoint());
         save_button.setOnAction(event -> {
@@ -83,6 +87,7 @@ public class EditSegmentController implements Initializable {
         endpoint_field.setText(Model.getInstance().getSegment().getPontoDestino().getName());
         direction_field.setText(Model.getInstance().getSegment().getDirecao());
         distance_field.setText(String.valueOf(Model.getInstance().getSegment().getDistancia()));
+        blocked_checkbox.setSelected(Model.getInstance().getSegment().getBloqueado());
         obs_field.setText(Model.getInstance().getSegment().getObs());
         error_label.setText("");
     }
@@ -92,7 +97,11 @@ public class EditSegmentController implements Initializable {
         Point endPoint = Model.getInstance().getPointByName(endpoint_field.getText());
         String direction = direction_field.getText();
         int distance = Integer.parseInt(distance_field.getText());
-        String obs = obs_field.getText().isEmpty() ? null : obs_field.getText();
-        return new Segment(startPoint, endPoint, direction, distance, obs);
+        boolean blocked = blocked_checkbox.isSelected();
+        String obs = obs_field.getText();
+        if (obs != null && obs.isEmpty()) {
+            obs = null;
+        }
+        return new Segment(startPoint, endPoint, direction, distance, blocked, obs);
     }
 }

@@ -46,7 +46,10 @@ public class EditPointController implements Initializable {
 
     private void onSavePoint() {
         String name = name_field.getText();
-        String obs = obs_field.getText().isEmpty() ? null : obs_field.getText();
+        String obs = obs_field.getText();
+        if (obs != null && obs.isEmpty()) {
+            obs = null;
+        }
         try {
             if (DataValidation.pointInfoValidation(name)) {
                 SendEditPoint sender = new SendEditPoint();

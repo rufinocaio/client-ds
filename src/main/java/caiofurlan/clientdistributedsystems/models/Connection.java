@@ -1,11 +1,15 @@
 package caiofurlan.clientdistributedsystems.models;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class Connection {
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
     Socket socket = null;
     OutputStream out = null;
     InputStream in = null;
@@ -30,12 +34,14 @@ public class Connection {
             try {
                 PrintWriter writer = new PrintWriter(out, true);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
-                System.out.println("Enviando mensagem para o servidor: " + message);
+                JsonNode jsonNode = objectMapper.readTree(message);
+                String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+                System.out.println("Enviando para o servidor: \n" + prettyJson);
                 writer.println(message);
-
                 if((response = reader.readLine()) != null) {
-                    System.out.println("Resposta do servidor: " + response);
+                    jsonNode = objectMapper.readTree(response);
+                    prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+                    System.out.println("JSON recebido do servidor: \n" + prettyJson);
                     break;
                 }
             } catch (IOException e) {

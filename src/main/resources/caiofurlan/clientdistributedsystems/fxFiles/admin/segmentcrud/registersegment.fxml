@@ -16,6 +16,7 @@
         <TextField fx:id="direction_field" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Distancia (em metros)" />
         <TextField fx:id="distance_field" />
+        <CheckBox fx:id="blocked_checkbox" mnemonicParsing="false" text="Bloqueado?" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação" />
         <TextField fx:id="obs_field" />
         <Button fx:id="register_button" mnemonicParsing="false" text="Registrar" />

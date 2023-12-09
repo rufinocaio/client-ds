@@ -26,11 +26,12 @@
     <VBox layoutX="311.0" layoutY="-6.0" prefHeight="165.0" prefWidth="172.0">
         <Label fx:id="id_label" text="ID: 1">
            <VBox.margin>
-               <Insets top="15.0"/>
+               <Insets top="15.0" />
            </VBox.margin>
         </Label>
-        <Label fx:id="direction_label" text="Direção: à frente"/>
-        <Label fx:id="distance_label" text="Distância: 50 metros"/>
-        <Label fx:id="obs_label" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="114.0" text="Observação:"/>
+        <Label fx:id="direction_label" text="Direção: à frente" />
+        <Label fx:id="distance_label" text="Distância: 50 metros" />
+      <Label fx:id="blocked_label" layoutX="21.0" layoutY="99.0" text="Bloqueado: Sim" />
+        <Label fx:id="obs_label" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="114.0" text="Observação:" />
     </VBox>
 </AnchorPane>

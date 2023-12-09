@@ -10,6 +10,7 @@ import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -22,12 +23,15 @@ public class RegisterSegmentController implements Initializable {
     public Button select_point_button;
     public TextField direction_field;
     public TextField distance_field;
+    public CheckBox blocked_checkbox;
     public TextField obs_field;
     public Button register_button;
     public Label error_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        startpoint_field.setEditable(false);
+        endpoint_field.setEditable(false);
         setSegmentInfo();
         select_point_button.setOnAction(event -> onSelectPoint());
         register_button.setOnAction(event -> {
@@ -89,11 +93,9 @@ public class RegisterSegmentController implements Initializable {
         Point startPoint = Model.getInstance().getPointByName(startpoint_field.getText());
         Point endPoint = Model.getInstance().getPointByName(endpoint_field.getText());
         String direction = direction_field.getText();
-        int distance = -1;
-        if (!distance_field.getText().equals("")) {
-            distance = Integer.parseInt(distance_field.getText());
-        }
+        int distance = !distance_field.getText().isEmpty() ? Integer.parseInt(distance_field.getText()) : -1;
         String obs = obs_field.getText().isEmpty() ? null : obs_field.getText();
-        Model.getInstance().setSegment(new Segment(startPoint, endPoint, direction, distance, obs));
+        boolean blocked = blocked_checkbox.isSelected();
+        Model.getInstance().setSegment(new Segment(startPoint, endPoint, direction, distance, blocked, obs));
     }
 }
