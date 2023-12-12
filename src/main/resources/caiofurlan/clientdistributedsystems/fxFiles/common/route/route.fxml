@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.common.route.RouteController">
+    <HBox alignment="TOP_CENTER" layoutX="150.0" prefHeight="170.0" prefWidth="550.0">
+        <VBox fillWidth="false" prefHeight="157.0" prefWidth="275.0">
+            <Text layoutX="21.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto inicial" />
+            <TextField fx:id="startpoint_field" layoutX="21.0" layoutY="144.0" />
+            <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto final" />
+            <TextField fx:id="endpoint_field" layoutX="21.0" layoutY="57.0" />
+        </VBox>
+        <VBox prefHeight="157.0" prefWidth="276.0">
+            <Button fx:id="select_point_button" mnemonicParsing="false" style="-fx-background-color: #0000AA;" text="Selecionar pontos" />
+            <Button fx:id="search_button" mnemonicParsing="false" text="Pesquisar rota" />
+            <Label fx:id="error_label" prefHeight="14.0" prefWidth="327.0" styleClass="error_label" />
+        </VBox>
+    </HBox>
+   <ListView fx:id="route_list_view" layoutX="26.0" layoutY="175.0" prefHeight="200.0" prefWidth="499.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="200.0" />
+</AnchorPane>

@@ -4,6 +4,7 @@ import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Point;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,10 +14,14 @@ import java.util.ResourceBundle;
 
 public class PointCellController implements Initializable {
 
-    public Label id_label;
-    public Label name_label;
-    public Label obs_label;
-    public Button edit_button;
+    @FXML
+    private Label id_label;
+    @FXML
+    private Label name_label;
+    @FXML
+    private Label obs_label;
+    @FXML
+    private Button edit_button;
 
     private final Point point;
 
@@ -28,7 +33,8 @@ public class PointCellController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         id_label.setText("ID: " + point.getID());
         name_label.setText("Nome: " + point.getName());
-        obs_label.setText("Observação: " + point.getObs());
+        String obsText = point.getObs() != null ? point.getObs() : ""; // or any default message
+        obs_label.setText("Observação: " + obsText);
         edit_button.setOnAction(event -> {
             try {
                 onEditPoint();

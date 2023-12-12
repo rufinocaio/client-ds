@@ -5,6 +5,7 @@ import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.SendDeletePoint;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,9 +14,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DeletePointController implements Initializable {
-    public Button left_button;
-    public Button delete_button;
-    public Label text_label;
+    @FXML
+    private Button left_button;
+    @FXML
+    private Button delete_button;
+    @FXML
+    private Label text_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

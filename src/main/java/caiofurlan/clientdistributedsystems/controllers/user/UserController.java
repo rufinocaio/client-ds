@@ -1,6 +1,7 @@
 package caiofurlan.clientdistributedsystems.controllers.user;
 
 import caiofurlan.clientdistributedsystems.models.Model;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 
@@ -9,7 +10,8 @@ import java.util.ResourceBundle;
 
 public class UserController implements Initializable {
 
-    public BorderPane user_parent;
+    @FXML
+    private BorderPane user_parent;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Model.getInstance().getViewFactory().getSelectedMenuItem().addListener((observable, oldValue, newValue) -> {
@@ -23,6 +25,9 @@ public class UserController implements Initializable {
                     break;
                 case AUTO_DELETE_USER:
                     user_parent.setCenter(Model.getInstance().getViewFactory().getAutoDeleteUserView());
+                    break;
+                case SELECT_POINT:
+                    user_parent.setCenter(Model.getInstance().getViewFactory().getSelectPointView());
                     break;
                 default:
                     user_parent.setCenter(Model.getInstance().getViewFactory().getDashboardView());

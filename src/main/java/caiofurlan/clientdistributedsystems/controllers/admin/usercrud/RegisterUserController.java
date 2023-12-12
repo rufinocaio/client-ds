@@ -6,6 +6,7 @@ import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendRegisterUser;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -17,12 +18,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegisterUserController implements Initializable {
-    public TextField name_field;
-    public TextField email_field;
-    public TextField password_field;
-    public ChoiceBox account_selector;
-    public Button register_button;
-    public Label error_label;
+    @FXML
+    private TextField name_field;
+    @FXML
+    private TextField email_field;
+    @FXML
+    private TextField password_field;
+    @FXML
+    private ChoiceBox account_selector;
+    @FXML
+    private Button register_button;
+    @FXML
+    private Label error_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

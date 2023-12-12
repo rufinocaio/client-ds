@@ -80,6 +80,17 @@ public class DataValidation {
         return pattern.matcher(email).matches();
     }
 
+    // Route
+    public static boolean routeInfoValidation(String startPoint, String endPoint) throws Exception {
+        if (startPoint == null || startPoint.isEmpty()) {
+            throw  new Exception("Ponto inicial é obrigatório");
+        }
+        if (endPoint == null || endPoint.isEmpty()) {
+            throw  new Exception("Ponto final é obrigatório");
+        }
+        return true;
+    }
+
     public static boolean isPasswordValid(String password) {
         return password.length() < 6;
     }

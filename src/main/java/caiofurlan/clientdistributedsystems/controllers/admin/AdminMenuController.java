@@ -11,6 +11,7 @@ import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -19,14 +20,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminMenuController implements Initializable {
-    public Button user_register_button;
-    public Button users_button;
-    public Button point_register_button;
-    public Button points_button;
-    public Button segment_register_button;
-    public Button segments_button;
-    public Button profile_button;
-    public Button logout_button;
+    @FXML
+    private Button users_button;
+    @FXML
+    private Button points_button;
+    @FXML
+    private Button segments_button;
+    @FXML
+    private Button profile_button;
+    @FXML
+    private Button logout_button;
 
 
     @Override
@@ -35,7 +38,6 @@ public class AdminMenuController implements Initializable {
     }
 
     private void addListeners(){
-        user_register_button.setOnAction(event -> onRegisterUser ());
         users_button.setOnAction(event -> {
             try {
                 onUserList();
@@ -43,7 +45,6 @@ public class AdminMenuController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        point_register_button.setOnAction(event -> onRegisterPoint ());
         points_button.setOnAction(event -> {
             try {
                 onPointList();
@@ -51,7 +52,6 @@ public class AdminMenuController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        segment_register_button.setOnAction(event -> onRegisterSegment ());
         segments_button.setOnAction(event -> {
             try {
                 onSegmentList();
@@ -75,10 +75,6 @@ public class AdminMenuController implements Initializable {
         });
     }
 
-    private void onRegisterUser() {
-        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_USER);
-    }
-
     private void onUserList() throws JsonProcessingException {
         SendUserList sender = new SendUserList();
         JsonNode response = sender.send();
@@ -93,10 +89,6 @@ public class AdminMenuController implements Initializable {
         }
     }
 
-    private void onRegisterPoint() {
-        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_POINT);
-    }
-
     private void onPointList() throws JsonProcessingException {
         SendPointList sender = new SendPointList();
         JsonNode response = sender.send();
@@ -109,10 +101,6 @@ public class AdminMenuController implements Initializable {
                 Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.POINT_LIST);
             }
         }
-    }
-
-    private void onRegisterSegment() {
-        Model.getInstance().getViewFactory().getSelectedMenuItem().set(MenuOptions.REGISTER_SEGMENT);
     }
 
     private void onSegmentList() throws JsonProcessingException {

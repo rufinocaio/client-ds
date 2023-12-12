@@ -9,6 +9,7 @@ import caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud.Se
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -20,17 +21,28 @@ import java.util.ResourceBundle;
 
 public class EditSegmentController implements Initializable {
 
-    public TextField startpoint_field;
-    public TextField endpoint_field;
-    public Button select_point_button;
-    public TextField direction_field;
-    public TextField distance_field;
-    public CheckBox blocked_checkbox;
-    public TextField obs_field;
-    public Button save_button;
-    public Button delete_button;
-    public Button left_button;
-    public Label error_label;
+    @FXML
+    private TextField startpoint_field;
+    @FXML
+    private TextField endpoint_field;
+    @FXML
+    private Button select_point_button;
+    @FXML
+    private TextField direction_field;
+    @FXML
+    private TextField distance_field;
+    @FXML
+    private CheckBox blocked_checkbox;
+    @FXML
+    private TextField obs_field;
+    @FXML
+    private Button save_button;
+    @FXML
+    private Button delete_button;
+    @FXML
+    private Button left_button;
+    @FXML
+    private Label error_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

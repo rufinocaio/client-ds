@@ -8,6 +8,7 @@ import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendE
 import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -16,14 +17,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditUserController implements Initializable {
-    public TextField name_field;
-    public TextField email_field;
-    public PasswordField password_field;
-    public ChoiceBox<String> type_selector;
-    public Button save_button;
-    public Button left_button;
-    public Label error_label;
-    public Button delete_button;
+    @FXML
+    private TextField name_field;
+    @FXML
+    private TextField email_field;
+    @FXML
+    private PasswordField password_field;
+    @FXML
+    private ChoiceBox<String> type_selector;
+    @FXML
+    private Button save_button;
+    @FXML
+    private Button left_button;
+    @FXML
+    private Label error_label;
+    @FXML
+    private Button delete_button;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

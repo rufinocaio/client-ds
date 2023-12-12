@@ -17,3 +17,17 @@
     -fx-background-color: #EEEEEE;
     -fx-border-width: 10 0 10 0;
 }
+
+.userslist_container Button {
+    -fx-background-color: linear-gradient(to right, #132A13, #253F25);
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
+    -fx-pref-width: 250;
+    -fx-pref-height: 35;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.5em;
+    -fx-font-family: "Calibri Light";
+}
+
+.userslist_container Button:hover {
+    -fx-cursor: hand;
+}

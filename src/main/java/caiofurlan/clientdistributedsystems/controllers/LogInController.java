@@ -6,6 +6,7 @@ import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.SendLogin;
 import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,11 +18,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LogInController implements Initializable {
-    public TextField email_field;
-    public TextField password_field;
-    public Button login_button;
-    public Label error_label;
-    public Button register_button;
+    @FXML
+    private TextField email_field;
+    @FXML
+    private TextField password_field;
+    @FXML
+    private Button login_button;
+    @FXML
+    private Label error_label;
+    @FXML
+    private Button register_button;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -1,4 +1,4 @@
-package caiofurlan.clientdistributedsystems.controllers.common;
+package caiofurlan.clientdistributedsystems.controllers.common.autousercrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
@@ -6,6 +6,7 @@ import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.autousercrud.SendAutoDeleteUser;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,10 +18,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AutoDeleteUserController implements Initializable {
-    public Button left_button;
-    public Button delete_button;
-    public PasswordField password_field;
-    public Label error_label;
+    @FXML
+    private Button left_button;
+    @FXML
+    private Button delete_button;
+    @FXML
+    private PasswordField password_field;
+    @FXML
+    private Label error_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

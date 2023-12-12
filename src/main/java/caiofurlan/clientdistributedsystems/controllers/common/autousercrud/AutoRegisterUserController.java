@@ -1,10 +1,11 @@
-package caiofurlan.clientdistributedsystems.controllers.common;
+package caiofurlan.clientdistributedsystems.controllers.common.autousercrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.autousercrud.SendAutoRegisterUser;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,12 +19,18 @@ import java.util.ResourceBundle;
 
 public class AutoRegisterUserController implements Initializable {
 
-    public TextField name_field;
-    public TextField email_field;
-    public PasswordField password_field;
-    public Button register_button;
-    public Label error_label;
-    public Button login_button;
+    @FXML
+    private TextField name_field;
+    @FXML
+    private TextField email_field;
+    @FXML
+    private PasswordField password_field;
+    @FXML
+    private Button register_button;
+    @FXML
+    private Label error_label;
+    @FXML
+    private Button login_button;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

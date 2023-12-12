@@ -5,13 +5,22 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.admin.pointcrud.RegisterPointController">
-    <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registar novo ponto" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-    <VBox fillWidth="false" layoutX="14.0" layoutY="43.0" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+    <VBox fillWidth="false" layoutX="286.0" layoutY="244.0" prefHeight="263.0" prefWidth="279.0" AnchorPane.leftAnchor="286.0" AnchorPane.topAnchor="244.0">
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
         <TextField fx:id="name_field" />
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Text>
         <TextField fx:id="obs_field" />
-        <Button fx:id="register_button" mnemonicParsing="false" text="Registrar" />
-        <Label fx:id="error_label" styleClass="error_label" text="Erro:" />
+        <Button fx:id="register_button" mnemonicParsing="false" text="Registrar">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font></Button>
+      <HBox prefHeight="3.0" prefWidth="253.0">
+         <children>
+              <Label fx:id="error_label" prefHeight="17.0" prefWidth="266.0" styleClass="error_label" />
+         </children>
+      </HBox>
     </VBox>
 </AnchorPane>

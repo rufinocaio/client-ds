@@ -2,6 +2,7 @@ package caiofurlan.clientdistributedsystems.controllers.admin;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 
@@ -9,7 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-    public BorderPane admin_parent;
+    @FXML
+    private BorderPane admin_parent;
     private MenuOptions previousMenu;
     @Override
     public void initialize(URL location, ResourceBundle resources) {

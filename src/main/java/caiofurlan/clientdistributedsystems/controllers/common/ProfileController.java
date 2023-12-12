@@ -3,16 +3,22 @@ package caiofurlan.clientdistributedsystems.controllers.common;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.User;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class ProfileController implements Initializable {
-    public TextField name_field;
-    public TextField email_field;
-    public TextField password_field;
-    public Button delete_button;
-    public Button edit_button;
+    @FXML
+    private TextField name_field;
+    @FXML
+    private TextField email_field;
+    @FXML
+    private TextField password_field;
+    @FXML
+    private Button delete_button;
+    @FXML
+    private Button edit_button;
 
     @Override
     public void initialize(java.net.URL location, java.util.ResourceBundle resources) {

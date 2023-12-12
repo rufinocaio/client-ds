@@ -22,7 +22,7 @@ public class ConnectController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tf_ip.setText("127.0.0.1");
-        tf_port.setText("12345");
+        tf_port.setText("23000");
         button_connect.setOnAction(event -> {
             try {
                 openDialog(tf_ip.getText(), tf_port.getText());

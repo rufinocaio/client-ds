@@ -8,6 +8,7 @@ import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -16,12 +17,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class UserMenuController implements Initializable {
-    public Button dashboard_button;
-    public Button second_button;
-    public Button third_button;
-    public Button profile_button;
-    public Button logout_button;
-    public Button report_button;
+    @FXML
+    private Button dashboard_button;
+    @FXML
+    private Button second_button;
+    @FXML
+    private Button third_button;
+    @FXML
+    private Button profile_button;
+    @FXML
+    private Button logout_button;
+    @FXML
+    private Button report_button;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

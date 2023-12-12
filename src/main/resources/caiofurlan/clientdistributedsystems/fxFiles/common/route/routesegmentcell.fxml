@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="166.0" prefWidth="770.0" style="-fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-width: 3; -fx-border-radius: 5;" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox layoutX="11.0" layoutY="9.0" prefHeight="154.0" prefWidth="748.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="6.0">
+        <VBox prefHeight="103.0" prefWidth="67.0">
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+            <Label fx:id="segment_id_label" alignment="CENTER" prefHeight="14.0" prefWidth="73.0" text="1">
+                <VBox.margin>
+                    <Insets top="50.0" />
+                </VBox.margin>
+            </Label>
+        </VBox>
+        <VBox prefHeight="148.0" prefWidth="350.0" style="-fx-border-width: 3; -fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-radius: 5;">
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+            <Label text="Ponto inicial" />
+            <Label fx:id="startpoint_name_label" layoutX="21.0" layoutY="20.0" text="Nome: Portaria" />
+            <Label fx:id="startpoint_obs_label" alignment="TOP_LEFT" layoutX="21.0" layoutY="20.0" prefHeight="35.0" prefWidth="114.0" text="Observação:" wrapText="true" />
+        </VBox>
+        <VBox layoutX="14.0" layoutY="10.0" prefHeight="73.0" prefWidth="350.0" style="-fx-border-width: 3; -fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-radius: 5;">
+            <Label text="Ponto final" />
+            <Label fx:id="endpoint_name_label" layoutX="21.0" layoutY="20.0" text="Nome: Capela" />
+            <Label fx:id="endpoint_obs_label" alignment="TOP_LEFT" layoutX="21.0" layoutY="20.0" prefHeight="35.0" prefWidth="114.0" text="Observação: " wrapText="true" />
+            <HBox.margin>
+                <Insets right="10.0" />
+            </HBox.margin>
+        </VBox>
+       <VBox prefHeight="162.0" prefWidth="450.0" style="-fx-border-width: 3; -fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-radius: 5;">
+           <Label fx:id="distance_label" text="Distância: 50 metros" />
+           <Label fx:id="direction_label" alignment="TOP_LEFT" prefHeight="78.0" prefWidth="274.0" text="Direção: à frente" wrapText="true" />
+           <Label fx:id="obs_label" alignment="TOP_LEFT" prefHeight="78.0" prefWidth="277.0" text="Observação:" wrapText="true" />
+       </VBox>
+    </HBox>
+</AnchorPane>

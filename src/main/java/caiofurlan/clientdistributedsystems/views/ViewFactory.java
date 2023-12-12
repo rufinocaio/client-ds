@@ -75,7 +75,7 @@ public class ViewFactory {
     }
 
     public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/login.fxml"));
         createStage(loader, "Log in!");
     }
 
@@ -93,7 +93,7 @@ public class ViewFactory {
     public AnchorPane getAutoEditUserView() {
         if (autoEditUserView == null) {
             try {
-                autoEditUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autoedituser.fxml")).load();
+                autoEditUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autousercrud/autoedituser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -104,7 +104,7 @@ public class ViewFactory {
     public AnchorPane getAutoDeleteUserView() {
         if (autoDeleteUserView == null) {
             try {
-                autoDeleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autodeleteuser.fxml")).load();
+                autoDeleteUserView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autousercrud/autodeleteuser.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -113,7 +113,7 @@ public class ViewFactory {
     }
 
     public void showAutoRegisterUserWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/autoregisteruser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/autousercrud/autoregisteruser.fxml"));
         createStage(loader, "Registre-se!");
     }
 
@@ -128,7 +128,7 @@ public class ViewFactory {
     public AnchorPane getDashboardView() {
         if (dashboardView == null) {
             try {
-                dashboardView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/user/dashboard.fxml")).load();
+                dashboardView = new FXMLLoader(getClass().getResource("/caiofurlan/clientdistributedsystems/fxFiles/common/route/route.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }

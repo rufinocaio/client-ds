@@ -6,12 +6,20 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.admin.segmentcrud.EditSegmentController">
-    <VBox layoutX="282.0" layoutY="166.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="40.0">
-        <Text layoutX="21.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto inicial:" />
+    <VBox layoutX="150.0" layoutY="73.0" prefHeight="605.0" prefWidth="550.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="73.0">
+        <Text layoutX="21.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto inicial" />
         <TextField fx:id="startpoint_field" layoutX="21.0" layoutY="144.0" />
-        <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto final:" />
+        <Text layoutX="21.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ponto final" />
         <TextField fx:id="endpoint_field" layoutX="21.0" layoutY="57.0" />
-        <Button fx:id="select_point_button" layoutX="21.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: #0000AA;" text="Selecionar pontos" />
+      <HBox prefHeight="17.0" prefWidth="580.0">
+         <children>
+              <Button fx:id="select_point_button" mnemonicParsing="false" prefHeight="34.0" style="-fx-background-color: #0000AA;" text="Selecionar pontos">
+               <HBox.margin>
+                  <Insets left="137.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Direção" />
         <TextField fx:id="direction_field" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Distancia (em metros)" />
@@ -32,7 +40,13 @@
                     <Insets />
                 </HBox.margin></Button>
         </HBox>
-        <Button fx:id="left_button" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-max-width: 100; -fx-font-size: 1.3em; -fx-max-height: 15;" text="Voltar" />
-        <Label fx:id="error_label" styleClass="error_label" />
+        <HBox prefHeight="11.0" prefWidth="524.0">
+            <Label fx:id="error_label" prefHeight="15.0" prefWidth="224.0" styleClass="error_label" />
+            <Button fx:id="left_button" mnemonicParsing="false" prefHeight="27.0" prefWidth="146.0" style="-fx-max-width: 100; -fx-font-size: 1.3em; -fx-max-height: 15;" text="Voltar">
+                <HBox.margin>
+                    <Insets left="200.0" />
+                </HBox.margin>
+            </Button>
+        </HBox>
     </VBox>
 </AnchorPane>

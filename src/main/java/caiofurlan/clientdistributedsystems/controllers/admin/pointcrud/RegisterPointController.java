@@ -6,6 +6,7 @@ import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.Send
 import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendRegisterUser;
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import com.fasterxml.jackson.databind.JsonNode;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,10 +17,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RegisterPointController implements Initializable {
-    public TextField name_field;
-    public TextField obs_field;
-    public Button register_button;
-    public Label error_label;
+    @FXML
+    private TextField name_field;
+    @FXML
+    private TextField obs_field;
+    @FXML
+    private Button register_button;
+    @FXML
+    private Label error_label;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -34,7 +39,6 @@ public class RegisterPointController implements Initializable {
     }
 
     private void onRegister() throws Exception {
-
         String name = name_field.getText();
         String obs = obs_field.getText().isEmpty() ? null : obs_field.getText();
         if (DataValidation.pointInfoValidation(name)) {

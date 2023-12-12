@@ -9,7 +9,7 @@
     </left>
 
     <center>
-        <fx:include source="dashboard.fxml"/>
+        <fx:include source="../common/route/route.fxml"/>
     </center>
 
 </BorderPane>

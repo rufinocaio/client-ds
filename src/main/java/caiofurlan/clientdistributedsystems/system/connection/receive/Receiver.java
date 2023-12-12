@@ -107,4 +107,12 @@ public class Receiver {
         }
     }
 
+    public void getRouteList() throws JsonProcessingException {
+        JsonNode rootNode = objectMapper.readTree(data.toString());
+        if (data.has("segmentos")) {
+            JsonNode jsonNode = rootNode.get("segmentos");
+            Model.getInstance().setRouteList(jsonNode);
+        }
+    }
+
 }
