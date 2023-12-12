@@ -39,7 +39,7 @@ public class DataValidation {
         if (type == null || type.isEmpty()) {
             throw new Exception("Tipo é obrigatório");
         }
-        if (isEmailValid(email)) {
+        if (!isEmailValid(email)) {
             throw new Exception("E-mail inválido.");
         }
         if (isPasswordValid(password)) {
