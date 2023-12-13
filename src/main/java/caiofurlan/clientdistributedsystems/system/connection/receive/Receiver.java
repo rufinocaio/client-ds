@@ -13,13 +13,19 @@ public class Receiver {
     private boolean error;
     private String message;
     private JsonNode data;
+    private JsonNode segmentos;
 
     public Receiver(JsonNode response) {
-        this.action = response.get("action").asText();
+        if (response.has("action")) {
+            this.action = response.get("action").asText();
+        }
         this.error = response.get("error").asBoolean();
         this.message = response.get("message").asText();
         if (response.has("data")) {
             this.data = response.get("data");
+        }
+        if (response.has("segmentos")) {
+            this.segmentos = response.get("segmentos");
         }
     }
 
@@ -108,11 +114,12 @@ public class Receiver {
     }
 
     public void getRouteList() throws JsonProcessingException {
-        JsonNode rootNode = objectMapper.readTree(data.toString());
+        /*JsonNode rootNode = objectMapper.readTree(data.toString());
         if (data.has("segmentos")) {
             JsonNode jsonNode = rootNode.get("segmentos");
             Model.getInstance().setRouteList(jsonNode);
-        }
+        }*/
+        Model.getInstance().setRouteList(segmentos);
     }
 
 }

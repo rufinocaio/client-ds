@@ -2,7 +2,6 @@ package caiofurlan.clientdistributedsystems.controllers.admin.segmentcrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Point;
-import caiofurlan.clientdistributedsystems.views.PointCellFactory;
 import caiofurlan.clientdistributedsystems.views.SelectPointCellFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

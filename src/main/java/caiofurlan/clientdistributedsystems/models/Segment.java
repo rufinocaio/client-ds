@@ -1,7 +1,7 @@
 package caiofurlan.clientdistributedsystems.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(value = {"id"}, allowSetters = true)
 public class Segment {

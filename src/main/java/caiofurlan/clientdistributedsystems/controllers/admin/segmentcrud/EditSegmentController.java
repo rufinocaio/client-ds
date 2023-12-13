@@ -4,7 +4,6 @@ import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Point;
 import caiofurlan.clientdistributedsystems.models.Segment;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
-import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.SendEditPoint;
 import caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud.SendEditSegment;
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;

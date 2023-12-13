@@ -1,9 +1,9 @@
 package caiofurlan.clientdistributedsystems.controllers.admin.usercrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendRegisterUser;
+import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;

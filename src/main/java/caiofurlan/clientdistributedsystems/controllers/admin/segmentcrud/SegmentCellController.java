@@ -2,7 +2,6 @@ package caiofurlan.clientdistributedsystems.controllers.admin.segmentcrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Segment;
-
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.fxml.FXML;

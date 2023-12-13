@@ -1,9 +1,7 @@
 package caiofurlan.clientdistributedsystems.views;
 
 import caiofurlan.clientdistributedsystems.controllers.admin.pointcrud.PointCellController;
-import caiofurlan.clientdistributedsystems.controllers.admin.usercrud.UserCellController;
 import caiofurlan.clientdistributedsystems.models.Point;
-import caiofurlan.clientdistributedsystems.models.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 

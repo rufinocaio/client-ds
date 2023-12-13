@@ -1,7 +1,11 @@
 package caiofurlan.clientdistributedsystems.controllers.admin;
 
 import caiofurlan.clientdistributedsystems.models.Model;
+import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
+import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.SendPointList;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
@@ -52,12 +56,22 @@ public class AdminController implements Initializable {
                     break;
                 // Segment CRUD
                 case REGISTER_SEGMENT:
+                    try {
+                        onPointList();
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
+                    }
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getRegisterSegmentView());
                     break;
                 case SEGMENT_LIST:
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getSegmentsListView());
                     break;
                 case EDIT_SEGMENT:
+                    try {
+                        onPointList();
+                    } catch (JsonProcessingException e) {
+                        throw new RuntimeException(e);
+                    }
                     admin_parent.setCenter(Model.getInstance().getViewFactory().getEditSegmentView());
                     break;
                 case DELETE_SEGMENT:
@@ -78,5 +92,18 @@ public class AdminController implements Initializable {
                     break;
             }
         });
+    }
+
+    private void onPointList() throws JsonProcessingException {
+        SendPointList sender = new SendPointList();
+        JsonNode response = sender.send();
+        if (response != null) {
+            Receiver receiver = new Receiver(response);
+            if (receiver.getError()) {
+                Model.getInstance().getViewFactory().showErrorWindow(receiver.getMessage());
+            } else {
+                receiver.getPointList();
+            }
+        }
     }
 }

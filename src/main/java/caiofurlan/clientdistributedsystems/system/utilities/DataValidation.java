@@ -1,6 +1,5 @@
 package caiofurlan.clientdistributedsystems.system.utilities;
 
-import caiofurlan.clientdistributedsystems.models.Point;
 import caiofurlan.clientdistributedsystems.models.Segment;
 
 import java.util.regex.Pattern;

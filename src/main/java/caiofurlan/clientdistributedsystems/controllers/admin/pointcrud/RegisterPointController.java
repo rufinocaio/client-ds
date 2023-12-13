@@ -3,7 +3,6 @@ package caiofurlan.clientdistributedsystems.controllers.admin.pointcrud;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.pointcrud.SendRegisterPoint;
-import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendRegisterUser;
 import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.apache.commons.codec.digest.DigestUtils;
 
 import java.net.URL;
 import java.util.ResourceBundle;

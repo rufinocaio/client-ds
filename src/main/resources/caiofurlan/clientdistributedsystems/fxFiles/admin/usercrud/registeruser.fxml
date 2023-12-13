@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.admin.usercrud.RegisterUserController">
     <VBox fillWidth="false" layoutX="287.0" layoutY="177.0" prefHeight="397.0" prefWidth="277.0" AnchorPane.leftAnchor="287.0" AnchorPane.topAnchor="177.0">
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />

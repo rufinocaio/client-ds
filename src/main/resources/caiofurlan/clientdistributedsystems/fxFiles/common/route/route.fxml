@@ -2,8 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.text.Text?>
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caiofurlan.clientdistributedsystems.controllers.common.route.RouteController">
     <HBox alignment="TOP_CENTER" layoutX="150.0" prefHeight="170.0" prefWidth="550.0">
         <VBox fillWidth="false" prefHeight="157.0" prefWidth="275.0">

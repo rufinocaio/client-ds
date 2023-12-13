@@ -3,7 +3,6 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <AnchorPane prefHeight="166.0" prefWidth="770.0" style="-fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-width: 3; -fx-border-radius: 5;" styleClass="create_client_container" stylesheets="@../../../style/registeruser.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <HBox layoutX="11.0" layoutY="9.0" prefHeight="154.0" prefWidth="757.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="6.0">
         <VBox prefHeight="73.0" prefWidth="140.0" style="-fx-border-width: 3; -fx-border-color: linear-gradient(to right, #132A13, #253F25); -fx-border-radius: 5;">

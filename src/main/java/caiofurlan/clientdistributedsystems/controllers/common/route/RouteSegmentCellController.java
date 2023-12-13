@@ -1,10 +1,8 @@
 package caiofurlan.clientdistributedsystems.controllers.common.route;
 
 import caiofurlan.clientdistributedsystems.models.Segment;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;

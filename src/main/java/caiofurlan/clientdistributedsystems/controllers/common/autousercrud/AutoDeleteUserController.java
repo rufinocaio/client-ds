@@ -1,9 +1,9 @@
 package caiofurlan.clientdistributedsystems.controllers.common.autousercrud;
 
 import caiofurlan.clientdistributedsystems.models.Model;
-import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.autousercrud.SendAutoDeleteUser;
+import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.databind.JsonNode;
 import javafx.fxml.FXML;

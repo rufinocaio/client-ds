@@ -3,7 +3,6 @@ package caiofurlan.clientdistributedsystems.system.connection.send.segmentcrud;
 import caiofurlan.clientdistributedsystems.models.Connection;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.models.Segment;
-import caiofurlan.clientdistributedsystems.system.utilities.DataValidation;
 import caiofurlan.clientdistributedsystems.system.connection.send.Sender;
 import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import com.fasterxml.jackson.core.JsonProcessingException;

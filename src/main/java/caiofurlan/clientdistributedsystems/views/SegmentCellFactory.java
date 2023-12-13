@@ -1,8 +1,6 @@
 package caiofurlan.clientdistributedsystems.views;
 
-import caiofurlan.clientdistributedsystems.controllers.admin.pointcrud.PointCellController;
 import caiofurlan.clientdistributedsystems.controllers.admin.segmentcrud.SegmentCellController;
-import caiofurlan.clientdistributedsystems.models.Point;
 import caiofurlan.clientdistributedsystems.models.Segment;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;

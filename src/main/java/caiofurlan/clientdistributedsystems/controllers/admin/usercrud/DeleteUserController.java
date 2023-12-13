@@ -3,7 +3,6 @@ package caiofurlan.clientdistributedsystems.controllers.admin.usercrud;
 import caiofurlan.clientdistributedsystems.models.Model;
 import caiofurlan.clientdistributedsystems.system.connection.receive.Receiver;
 import caiofurlan.clientdistributedsystems.system.connection.send.usercrud.SendDeleteUser;
-import caiofurlan.clientdistributedsystems.system.utilities.TokenManager;
 import caiofurlan.clientdistributedsystems.views.MenuOptions;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
